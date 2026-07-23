@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #050505;
+  --primary-accent: #0500ff;
+  --secondary-accent: #ff2d78;
+  --highlight: #ffe600;
+  --muted: #f5f5f5;
+  --muted-foreground: #6b6b6b;
+  --border: #050505;
+  --card: #ffffff;
+  --card-foreground: #050505;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-accent: var(--primary-accent);
+  --color-secondary-accent: var(--secondary-accent);
+  --color-highlight: var(--highlight);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --font-sans: var(--font-dm-sans);
+  --font-heading: var(--font-plus-jakarta);
+}
+
+.dark {
+  --background: #070707;
+  --foreground: #f5f5f5;
+  --primary-accent: #5c6dff;
+  --secondary-accent: #ff2d78;
+  --highlight: #ffe600;
+  --muted: #111111;
+  --muted-foreground: #888888;
+  --border: #2a2a2a;
+  --card: #111111;
+  --card-foreground: #f5f5f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Gen Z scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-accent);
+}
