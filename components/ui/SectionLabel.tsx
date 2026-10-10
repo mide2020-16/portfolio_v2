@@ -7,7 +7,7 @@ export function SectionLabel({ number, title }: SectionLabelProps) {
   return (
     <div className="flex items-center gap-4 mb-12">
       <span className="text-xs font-black font-mono text-muted-foreground uppercase tracking-widest">
-        {number} //
+        {number} <span aria-hidden="true">{"//"}</span>
       </span>
       <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tight">
         {title}

@@ -200,30 +200,30 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    role: "Front-end Developer Intern",
+    role: "Frontend Developer",
     company: "Maekandex Communications",
-    date: "Jun 2026 — Present",
-    type: "Contract",
+    date: "2025 — Present",
+    type: "Product delivery",
     description:
-      "Developing robust data tracking architectures and managing external team resources. Collaborating on system design for improved data analysis.",
+      "Building responsive web and mobile interfaces across live products including LetsMeet, 9jaBuzz, Pluser Games, LITeGre Prediction and JustJobNG. I ship reusable React/Next.js components, REST API integrations and accessible UI improvements with product teams.",
     accent: "bg-primary-accent",
   },
   {
-    role: "Mathematics and Computer Science Intern",
+    role: "Voluntary Intern Software Engineer",
     company: "ICTREC",
-    date: "Feb 2025 — Aug 2025",
-    type: "Contract",
+    date: "Feb 2025 — Sep 2025",
+    type: "University systems",
     description:
-      "Developing robust data tracking architectures and managing external team resources. Collaborating on system design for improved data analysis.",
+      "Maintained campus web portals serving 10,000+ students and staff, diagnosed software and database connectivity issues, supported deployment updates, testing and system stability work.",
     accent: "bg-primary-accent",
   },
   {
-    role: "Member of Google Develloper Student Club (GDSC) Funaab",
-    company: "Federal University of Agriculture, Abeokuta",
-    date: "Aug 2024 — June 2026",
-    type: "Part-time",
+    role: "Junior Developer → Frontend Developer",
+    company: "Maekandex Communications",
+    date: "2024 — 2025",
+    type: "Growth path",
     description:
-      "Collaborated on student portal optimisations and interface refinements to improve user engagement and accessibility.",
+      "Developed frontend features under senior guidance, connected interfaces to APIs, and strengthened delivery habits through debugging, testing, code reviews and Agile collaboration.",
     accent: "bg-secondary-accent",
   },
 ];
@@ -233,6 +233,12 @@ export interface Project {
   title: string;
   slug: string; // used for image folder: public/projects/<slug>/
   description: string;
+  caseStudy: string;
+  role: string;
+  year: string;
+  visual: "events" | "voice" | "weather" | "hostel" | "jobs" | "schedule";
+  highlights: string[];
+  gallery: string[];
   stack: string[];
   demoUrl?: string;
   sourceUrl?: string;
@@ -247,62 +253,101 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "JustJobNG",
-    slug: "justjobng",
+    title: "Vestry",
+    slug: "vestry",
     description:
-      "A modern job platform connecting talents with opportunities. Features a robust navbar/profile menu system, unified design tokens, and smooth Lottie animated wordmarks for enhanced branding for Maekandex Communications.",
-    stack: ["React", "Next.js", "Tailwind CSS", "Lottie"],
-    demoUrl: "https://jobng-five.vercel.app/",
+      "A multi-tenant event and ticketing ecosystem built to make registration, merch and meal selections feel effortless.",
+    caseStudy: "Vestry is designed around the moving parts of an event day: discovering an event, selecting a ticket, choosing extras and receiving a clear confirmation. The architecture supports dynamic organiser rules and secure access without losing the calm, mobile-friendly experience attendees need.",
+    role: "Product engineer",
+    year: "2026",
+    visual: "events",
+    highlights: ["Multi-organiser architecture", "Secure token flows", "Mobile-first checkout"],
+    gallery: ["Event discovery", "Ticket selection", "Attendee confirmation"],
+    stack: ["Next.js", "TypeScript", "Node.js", "MongoDB", "AWS"],
+    demoUrl: "https://vestry-beta.vercel.app/",
     sourceUrl: "#",
     featured: true,
-    images: [
-      // "/projects/justjobng/1.png",
-      // "/projects/justjobng/2.png",
-    ],
+    images: [],
   },
   {
     title: "GANI Hausa Voice Assistant",
     slug: "gani",
     description:
-      "An AI-powered voice assistant specifically tailored for the Hausa dialect. This project placed in the Top 12 Finalists at Codefest Nigeria 2025, demonstrating strong integration of AI with localised linguistic needs.",
-    stack: ["Python", "AI", "NLP", "APIs"],
+      "A localised voice assistant that brings natural Hausa conversation to an AI experience - a Top 12 Codefest Nigeria 2025 finalist.",
+    caseStudy: "GANI turns a high-friction interface into a familiar conversation. I helped shape the path from spoken Hausa input to an LLM response and real-time audio output, with a focus on accessibility and a distinctly local use case.",
+    role: "AI interface builder",
+    year: "2025",
+    visual: "voice",
+    highlights: ["Top 12 / Codefest 2025", "Real-time TTS pipeline", "Dialect-aware interaction"],
+    gallery: ["Voice prompt", "Conversation state", "Audio response"],
+    stack: ["Next.js", "Python", "Flask", "LLM", "Railway"],
     demoUrl: "#",
     sourceUrl: "#",
     featured: true,
-    images: [
-      // "/projects/gani/1.png",
-    ],
+    images: [],
   },
   {
     title: "SkyView",
     slug: "sky-view",
     description:
-      "A beautiful weather application featuring dynamic Lottie backgrounds, full theming system, and real-time data powered by the OpenWeatherMap API.",
-    stack: ["Next.js 15", "TypeScript", "Tailwind v4", "OpenWeatherMap"],
+      "A weather and environmental monitor that translates live atmospheric data into a more useful daily outlook.",
+    caseStudy: "SkyView began with a simple question: can weather data feel human? The interface pairs a calm visual system with location search, live API data and information that remains readable at a glance across device sizes.",
+    role: "Frontend engineer",
+    year: "2025",
+    visual: "weather",
+    highlights: ["Live atmospheric data", "Location-aware forecasts", "Dynamic visual states"],
+    gallery: ["Today at a glance", "Location search", "Hourly conditions"],
+    stack: ["React", "REST APIs", "Web APIs", "CSS3"],
     demoUrl: "https://my-weather-rho-coral.vercel.app/",
     sourceUrl: "#",
     images: [],
   },
   {
-    title: "Vestry",
-    slug: "vestry",
+    title: "HostelHub",
+    slug: "hostelhub",
     description:
-      "A modern ticketting website built for student fellowhips events. It is an applicaton where people can get ticket for events and also get merch while selecting meal wanted meal before the event. It make use of manual bank tranfer and also paystack medium",
-    stack: ["Next.js 15", "TypeScript", "Tailwind v4", "OpenWeatherMap"],
-    demoUrl: "https://vestry-beta.vercel.app/",
+      "A full-stack student accommodation experience that makes searching, filtering and reserving hostel spaces simpler on mobile.",
+    caseStudy: "HostelHub focuses on a practical, high-stakes workflow: finding a room without confusing availability or stale information. The mobile-first product brings availability, filters and booking status into one clear flow.",
+    role: "Mobile product developer",
+    year: "2026",
+    visual: "hostel",
+    highlights: ["Real-time room status", "Search and filter UX", "Cross-platform mobile flow"],
+    gallery: ["Hostel search", "Room details", "Booking status"],
+    stack: ["React Native", "Expo", "Django", "Python"],
+    demoUrl: "#",
     sourceUrl: "#",
     images: [],
   },
-  // {
-  //   title: "Bible Reading Reminder App",
-  //   slug: "bible-app",
-  //   description:
-  //     "A comprehensive 365-day reading plan app with automated notifications and alarm scheduling, helping users maintain their daily reading habits.",
-  //   stack: ["Expo", "React Native", "TypeScript", "Local Notifications"],
-  //   demoUrl: "https://vestry-beta.vercel.app/",
-  //   sourceUrl: "#",
-  //   images: [],
-  // },
+  {
+    title: "JustJobNG",
+    slug: "justjobng",
+    description: "A clearer employment search experience for Nigerian job seekers, from keyword discovery to application tracking.",
+    caseStudy: "JustJobNG puts the important work first: helping people locate relevant opportunities and act on them quickly. I focused on a navigable, responsive frontend system that keeps search, categories and the next step in view.",
+    role: "Frontend developer",
+    year: "2025",
+    visual: "jobs",
+    highlights: ["Keyword and category search", "Responsive dashboard", "Application tracking"],
+    gallery: ["Opportunity feed", "Smart search", "Application timeline"],
+    stack: ["Next.js", "Node.js", "PostgreSQL", "REST APIs"],
+    demoUrl: "https://www.justjobng.online",
+    sourceUrl: "#",
+    images: [],
+  },
+  {
+    title: "Kyros",
+    slug: "kyros",
+    description: "An automated course scheduling system designed to eliminate lecturer, room and timetable conflicts.",
+    caseStudy: "Kyros applies algorithmic graph theory to a human scheduling headache. The system models constraints so administrators can generate conflict-free combinations, while the product surface keeps the result understandable for everyday users.",
+    role: "Software developer",
+    year: "2025",
+    visual: "schedule",
+    highlights: ["Constraint-satisfaction logic", "Conflict-free schedules", "Admin-friendly workflows"],
+    gallery: ["Schedule overview", "Conflict resolution", "Course allocation"],
+    stack: ["Next.js", "Node.js", "MongoDB", "Graph Theory"],
+    demoUrl: "#",
+    sourceUrl: "#",
+    images: [],
+  },
 ];
 
 // ─── Skills ───────────────────────────────────────────────────
@@ -322,7 +367,8 @@ export const skillCategories: SkillCategory[] = [
       "TypeScript",
       "JavaScript",
       "Tailwind CSS",
-      "Framer Motion",
+      "React Native",
+      "Vite",
       "HTML",
       "CSS",
     ],
@@ -330,15 +376,15 @@ export const skillCategories: SkillCategory[] = [
   {
     title: "Backend & Data",
     accent: "bg-secondary-accent text-white border-secondary-accent",
-    skills: ["REST APIs", "Python", "Data Analysis", "SPSS", "Excel"],
+    skills: ["REST APIs", "Node.js", "Python", "MongoDB", "PostgreSQL", "Django"],
   },
   {
     title: "Tools",
     accent: "bg-highlight text-foreground border-highlight",
     skills: [
       "Git & GitHub",
-      "Expo (React Native)",
-      "Lottie",
+      "Expo",
+      "Agile / Scrum",
       "Vercel",
       "Figma",
       "Google Console",
@@ -362,5 +408,12 @@ export const education: Education[] = [
     dateRange: "2023 — 2026",
     classification: "Second Class Upper | 4.21",
     classificationAccent: "bg-highlight border-border text-foreground",
+  },
+  {
+    degree: "B.Sc. Software Engineering",
+    institution: "Africa Learning University, Nigeria",
+    dateRange: "2023 — 2024",
+    classification: "Software Engineering Programme",
+    classificationAccent: "bg-secondary-accent border-border text-white",
   },
 ];

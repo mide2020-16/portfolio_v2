@@ -109,25 +109,24 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${dmSans.variable} dark h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
-        {/* JSON-LD structured data */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem("theme");var d=window.matchMedia("(prefers-color-scheme: dark)").matches;var t=s==="light"||s==="dark"?s:d?"dark":"light";var e=document.documentElement;e.classList.remove("light","dark");e.classList.add(t);e.style.colorScheme=t}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-full flex flex-col font-sans transition-colors duration-300">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           <Navbar />
-          <main className="flex-1 md:pt-[73px] pb-[80px] md:pb-0">
+          <main className="flex-1 md:pt-20 pb-20 md:pb-0">
             {children}
           </main>
           <Footer />
