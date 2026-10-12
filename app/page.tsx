@@ -7,15 +7,16 @@ import { EducationSection } from "@/components/EducationSection";
 import { ContactSection } from "@/components/ContactSection";
 
 export default function Home() {
+
   return (
-    <div className="flex flex-col min-h-screen">
-      <Hero />
-      <AchievementBanner />
-      <ExperienceTimeline />
-      <ProjectsSection />
-      <SkillsGrid />
-      <EducationSection />
-      <ContactSection />
-    </div>
+        <main className="flex min-h-screen flex-col">
+          <Hero />
+          <AchievementBanner />
+          <ExperienceTimeline />
+          <ProjectsSection />
+          <SkillsGrid />
+          <EducationSection />
+          <ContactSection />
+        </main>
   );
 }

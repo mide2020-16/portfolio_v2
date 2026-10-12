@@ -2,8 +2,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-:root,
-html.dark {
+:root, html.dark {
   --background: #10110f;
   --foreground: #f3f1e8;
   --primary-accent: #c5f277;
@@ -87,98 +86,9 @@ html {
   color: #141510;
 }
 
-.site-nav {
-  position: fixed;
-  z-index: 50;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: 1.25rem clamp(1.25rem, 4vw, 4rem);
-  color: var(--foreground);
-  mix-blend-mode: difference;
-  transition: padding 0.35s ease;
-}
-.site-nav--scrolled {
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
-}
-.nav-brand {
-  display: flex;
-  align-items: center;
-  min-width: 0;
-  color: white;
-}
-.nav-logo {
-  display: inline-flex;
-  overflow: hidden;
-  font: 800 1.08rem/1 var(--font-heading);
-  letter-spacing: -0.08em;
-}
-.nav-logo > span {
-  display: inline-block;
-  min-width: 0.58em;
-  color: var(--primary-accent);
-  transition:
-    color 0.22s ease,
-    transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.nav-logo--decoded > span {
-  color: white;
-}
-.nav-logo--decoded > span:nth-child(2) {
-  color: var(--primary-accent);
-}
-.nav-avatar {
-  display: grid;
-  width: 0;
-  margin-right: 0;
-  overflow: hidden;
-  color: var(--primary-accent);
-  opacity: 0;
-  transform: translate3d(-1.4rem, 0, 0) scale(0.72);
-  transform-origin: right center;
-  transition:
-    width 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-    margin 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.26s ease,
-    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.nav-avatar svg {
-  width: 1.7rem;
-  height: 1.7rem;
-}
-.site-nav--scrolled .nav-avatar {
-  width: 1.7rem;
-  margin-right: 0.42rem;
-  opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
-}
-.site-nav nav {
-  display: flex;
-  gap: 1.8rem;
-  margin-left: auto;
-}
-.site-nav nav a,
-.nav-cta {
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.nav-cta {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-left: 1.2rem;
-}
-.nav-mobile {
-  display: none;
-  color: white;
+.mask-radial {
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
+  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
 }
 
 .hero-shell {

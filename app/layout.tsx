@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { AppShell } from "@/components/AppShell";
 import { seo, personalInfo } from "@/lib/data/portfolio";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -68,7 +67,6 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-// JSON-LD structured data (Person schema) for Google Knowledge Panel eligibility
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -92,7 +90,7 @@ const jsonLd = {
     "Python",
   ],
   alumniOf: {
-    "@type": "CollegeOrUniversity",
+    "@type": "University",
     name: "Federal University of Agriculture, Abeokuta",
   },
   address: {
@@ -112,24 +110,15 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} ${dmSans.variable} dark h-full antialiased`}
       suppressHydrationWarning
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem("theme");var d=window.matchMedia("(prefers-color-scheme: dark)").matches;var t=s==="light"||s==="dark"?s:d?"dark":"light";var e=document.documentElement;e.classList.remove("light","dark");e.classList.add(t);e.style.colorScheme=t}catch(e){}})();`,
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
       <body className="min-h-full flex flex-col font-sans transition-colors duration-300">
         <ThemeProvider>
-          <Navbar />
-          <main className="flex-1 md:pt-20 pb-20 md:pb-0">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+          <AppShell>
             {children}
-          </main>
-          <Footer />
+          </AppShell>
         </ThemeProvider>
       </body>
     </html>
