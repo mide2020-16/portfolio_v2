@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV_LINKS } from "./Navbar";
+import { NAV_LINKS } from "./navbar.data";
 
 export function DesktopNav() {
   return (

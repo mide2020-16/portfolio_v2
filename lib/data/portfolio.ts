@@ -9,7 +9,7 @@ export const personalInfo = {
   shortName: "Ayomide",
   title: "Software Engineer",
   subtitle: "Frontend Engineer & Developer",
-  bio: "I am a results-driven Software Engineer focused on building scalable, high-performance web applications using clean architecture and modern frameworks. I am also a mathematician with a strong understanding of algorithms and data structures.",
+  bio: "Full-stack software engineer specializing in scalable web systems, clean architecture, and modern web frameworks.",
   email: "efuwapeayomide51@gmail.com",
   location: "Nigeria",
   available: true,
@@ -158,12 +158,6 @@ export const codePanelSnippet = {
 export interface Achievement {
   title: string;
   subtitle: string;
-  badge: string;
-  /**
-   * Path to a certificate image (relative to /public).
-   * e.g. "/certificates/codefest-2025.png"
-   * Leave as "" if you don't have the image yet.
-   */
   certificateImage: string;
 }
 
@@ -171,19 +165,16 @@ export const achievements: Achievement[] = [
   {
     title: "Codefest Nigeria 2025",
     subtitle: "Top 12 Finalist — GANI Hausa Dialect Voice Assistant",
-    badge: "🏆 Achievement Unlocked",
     certificateImage: "/certificates/cf_cert.jpg",
   },
   {
     title: "Professional Development Skills",
     subtitle: "Participated in the Professional Development Skills from ALX Africa",
-    badge: "🏆 Achievement Unlocked",
     certificateImage: "/certificates/pf_cert.jpg",
   },
     {
     title: "Software Engineering",
     subtitle: "Participated in a 12 months Software Engineering Programme form ALX Africa",
-    badge: "🏆 Achievement Unlocked",
     certificateImage: "",
   },
 ];

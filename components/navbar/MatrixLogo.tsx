@@ -9,7 +9,7 @@ export default function MatrixLogo({
     letters.length > 0 && letters.every((_, index) => decodedIndices[index]);
 
   return (
-    <span className="inline-flex items-baseline gap-1 select-none whitespace-nowrap overflow-hidden">
+    <span className="inline-flex items-baseline gap-1 select-none whitespace-nowrap">
       {letters.map((letter, index) => {
         const isDecoded = decodedIndices[index];
 

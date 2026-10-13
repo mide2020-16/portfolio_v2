@@ -21,7 +21,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       >
         {/* Pass showSplash status to Navbar */}
         <Navbar showSplash={showSplash} />
-        <main className="flex-1 md:pt-20 pb-20 md:pb-0">{children}</main>
+        <main className=" md:pt-20 pb-20 md:pb-0">{children}</main>
         <Footer />
       </div>
     </>

@@ -110,7 +110,7 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} ${dmSans.variable} dark h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans transition-colors duration-300">
+      <body className="min-h-full flex transition-colors duration-300">
         <ThemeProvider>
           <script
             type="application/ld+json"

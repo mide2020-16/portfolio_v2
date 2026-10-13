@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { MOBILE_NAV_ITEMS } from "./Navbar";
 import Link from "next/link";
+import { MOBILE_NAV_ITEMS } from "./navbar.data";
 
 export function MobileNav() {
   const [activeHref, setActiveHref] = useState("#top");

@@ -1,36 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { ThemeToggle } from "../ThemeToggle";
-import { Home, Briefcase, Code, Mail } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
+import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import AvatarMark from "./AvatarMark";
 import MatrixLogo from "./MatrixLogo";
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
-
-// --- CONFIGURATION ---
-const BRAND_NAME = "Ayomide";
-const MATRIX_CHARS = "Ayomide".split("");
-
-const SCRAMBLE_INTERVAL_MS = 45;
-const INITIAL_DECODE_DELAY_MS = 15;
-const DECELERATION_MS = 10;
-const DECELERATION_POWER = 1;
-
-export const NAV_LINKS = [
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
-] as const;
-
-export const MOBILE_NAV_ITEMS = [
-  { href: "#top", label: "Home", icon: Home },
-  { href: "#experience", label: "Exp", icon: Briefcase },
-  { href: "#projects", label: "Work", icon: Code },
-  { href: "#contact", label: "Contact", icon: Mail },
-] as const;
+import {
+  BRAND_NAME,
+  DECELERATION_MS,
+  DECELERATION_POWER,
+  INITIAL_DECODE_DELAY_MS,
+  MATRIX_CHARS,
+  SCRAMBLE_INTERVAL_MS,
+} from "./navbar.data";
 
 interface NavbarProps {
   showSplash: boolean;
@@ -190,9 +175,10 @@ export function Navbar({ showSplash }: NavbarProps) {
         }`}
       >
         <div className="container mx-auto px-4 md:px-8 max-w-6xl flex items-center justify-between py-1">
+          {/* Added a fixed/min width container to prevent layout reflow during matrix character scrambling */}
           <Link
             href="/"
-            className="flex items-center gap-3 font-heading font-black text-xl md:text-2xl tracking-wider pointer-events-auto group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-accent rounded-lg p-1"
+            className="flex items-center gap-3 font-heading font-black text-xl md:text-2xl tracking-wider pointer-events-auto group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-accent rounded-lg p-1 shrink-0 w-32 md:w-37"
             aria-label="Ayomide - back to top"
           >
             <MatrixLogo letters={letters} decodedIndices={decodedIndices} />
@@ -211,7 +197,10 @@ export function Navbar({ showSplash }: NavbarProps) {
               <span className="relative z-10 flex items-center gap-2">
                 Hire Me
                 <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5">
-                  ↗
+                  <ArrowUpRight
+                    size={18}
+                    className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
                 </span>
               </span>
             </Link>

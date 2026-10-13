@@ -91,6 +91,33 @@ html {
   -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
 }
 
+/* Smooth Circular Theme Reveal */
+@keyframes circular-reveal {
+  from {
+    clip-path: circle(0px at var(--x) var(--y));
+  }
+  to {
+    clip-path: circle(150vmax at var(--x) var(--y));
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+  /* Smoother pacing (0.85s duration) with smooth ease-in-out curve */
+  animation: circular-reveal 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
 .hero-shell {
   position: relative;
   min-height: min(840px, 100svh);
