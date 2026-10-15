@@ -8,7 +8,7 @@ export function ExperienceTimeline() {
   return (
     <section id="experience" className="py-24">
       <div className="container mx-auto px-4 sm:px-8 max-w-6xl">
-        <SectionLabel number="01" title="Experience" />
+        <SectionLabel title="Experience" />
 
         <div className="space-y-6">
           {experiences.map((exp, index) => (

@@ -14,7 +14,6 @@ import {
   X,
 } from "lucide-react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
-import Link from "next/link";
 
 type Intent = "client" | "recruiter";
 type Step = "choose" | "book" | "success";

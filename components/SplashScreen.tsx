@@ -2,7 +2,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 
 interface SplashScreenProps {
   onFinish?: () => void;
@@ -134,22 +133,6 @@ export function SplashScreen({
           : "translate-y-0 opacity-100"
       }`}
     >
-      {/* Background portrait */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-20 overflow-hidden"
-      >
-        <Image
-          src="/splash.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="h-full w-full scale-105 transform-gpu object-cover object-center grayscale contrast-[1.2] opacity-[0.13] mix-blend-multiply dark:brightness-90 dark:opacity-25 dark:mix-blend-screen"
-        />
-      </div>
-
-      {/* Theme-aware shading */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-[#f7f6f0] via-[#f7f6f0]/65 to-[#f7f6f0]/80 dark:from-[#090a09] dark:via-[#090a09]/70 dark:to-[#090a09]/80"
@@ -159,12 +142,6 @@ export function SplashScreen({
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-[9] bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(23,24,19,0.05)_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.48)_100%)]"
       />
-
-      {/* Header */}
-      <header className="splash-fade-in relative z-10 flex justify-between gap-5 font-mono text-[10px] uppercase tracking-[0.13em] text-black/55 dark:text-white/55">
-        <span>Portfolio</span>
-        <span>{new Date().getFullYear()}</span>
-      </header>
 
       {/* Central typography */}
       <main className="splash-hero relative z-10 my-auto w-full text-center">

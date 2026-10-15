@@ -9,7 +9,7 @@ export function EducationSection() {
   return (
     <section className="py-24 bg-muted">
       <div className="container mx-auto px-4 sm:px-8 max-w-6xl">
-        <SectionLabel number="04" title="Education" />
+        <SectionLabel title="Education" />
 
         <div className="space-y-6">
           {education.map((edu, index) => (

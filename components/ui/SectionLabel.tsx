@@ -1,9 +1,8 @@
 interface SectionLabelProps {
-  number: string;
   title: string;
 }
 
-export function SectionLabel({ number, title }: SectionLabelProps) {
+export function SectionLabel({ title }: SectionLabelProps) {
   return (
     <div className="flex items-center gap-4 mb-12">
       <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tight">

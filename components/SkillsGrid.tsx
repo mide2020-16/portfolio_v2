@@ -145,7 +145,7 @@ export function SkillsGrid() {
       className="relative overflow-hidden bg-muted py-20 sm:py-24"
     >
       <div className="container mx-auto max-w-6xl px-4 sm:px-8">
-        <SectionLabel number="03" title="Skills" />
+        <SectionLabel title="Skills" />
 
         {/* Category Stack */}
         <motion.div
