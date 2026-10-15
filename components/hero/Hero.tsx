@@ -11,6 +11,7 @@ import fullStackAnimation from "@/assets/lottie/dev.json";
 import mobileAppsAnimation from "@/assets/lottie/creative.json";
 import aiSystemsAnimation from "@/assets/lottie/server.json";
 import { InteractiveHeroItem } from "./InteractiveHeroItem";
+import { useHireMe } from "../hire/HireMeProvider";
 
 const heroItems = [
   {
@@ -29,11 +30,11 @@ const heroItems = [
 
 export function Hero() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
+  const {openHireMe} = useHireMe();
   return (
     <section
       id="top"
-      className="relative flex min-h-[90svh] items-center overflow-hidden px-6 py-16 sm:px-8 lg:px-16"
+      className="relative flex min-h-[90svh] items-center overflow-hidden px-6 py-16 mt-12 sm:px-8 lg:px-16"
     >
       {/* Background grid */}
       <div
@@ -87,8 +88,10 @@ export function Hero() {
                 />
               </Link>
 
-              <Link
-                href="#contact"
+              <button
+              onClick={openHireMe}
+              type="button"
+              title="Speak with Ayomide."
                 className="group relative inline-flex items-center justify-center gap-2 border-2 border-zinc-900 dark:border-zinc-100 bg-white dark:bg-zinc-900 px-5 py-3 text-xs font-black uppercase tracking-wider text-zinc-900 dark:text-zinc-100 shadow-[5px_5px_0px_0px_rgba(24,24,27,1)] dark:shadow-[5px_5px_0px_0px_rgba(244,244,245,1)] transition-all duration-150 ease-out hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(244,244,245,1)] active:translate-x-1.25 active:translate-y-1.25 active:shadow-none sm:px-6 sm:text-sm"
               >
                 Let&apos;s Talk
@@ -96,7 +99,7 @@ export function Hero() {
                   size={18}
                   className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
-              </Link>
+              </button>
             </div>
           </div>
         </div>

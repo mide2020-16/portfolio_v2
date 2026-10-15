@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SectionLabel } from "./ui/SectionLabel";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
@@ -64,10 +65,47 @@ type FormState = "idle" | "loading" | "success" | "error";
 export function ContactSection() {
   const [formState, setFormState] = useState<FormState>("idle");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [contactIntent, setContactIntent] = useState<
+    "client" | "recruiter" | null
+  >(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const intent = params.get("intent");
+
+    if (intent !== "client" && intent !== "recruiter") {
+      return;
+    }
+
+    setContactIntent(intent);
+
+    setForm((current) => {
+      if (current.message.trim()) {
+        return current;
+      }
+
+      return {
+        ...current,
+        message:
+          intent === "recruiter"
+            ? "Hi Ayomide, I'd like to discuss a career opportunity with you.\n\n"
+            : "Hi Ayomide, I'd like to discuss a project with you.\n\n",
+      };
+    });
+
+    const timer = window.setTimeout(() => {
+      document.getElementById("contact")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 100);
+
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -125,7 +163,6 @@ export function ContactSection() {
             <p className="text-muted-foreground text-sm mb-6">
               Drop me a message and I&apos;ll get back to you ASAP.
             </p>
-
             <AnimatePresence mode="wait">
               {formState === "success" ? (
                 <motion.div
@@ -203,7 +240,10 @@ export function ContactSection() {
                       rows={4}
                       value={form.message}
                       onChange={handleChange}
-                      placeholder="Hey Ayomide, I'd love to collaborate on..."
+                      placeholder={
+                        contactIntent ||
+                        "Hey Ayomide, I'd love to collaborate on..."
+                      }
                       className="w-full px-4 py-3 bg-background border-2 border-border text-foreground placeholder:text-muted-foreground font-medium text-sm focus:outline-none focus:border-primary-accent transition-colors resize-none"
                     />
                   </div>

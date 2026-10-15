@@ -358,16 +358,23 @@ export const skillCategories: SkillCategory[] = [
       "TypeScript",
       "JavaScript",
       "Tailwind CSS",
-      "React Native",
-      "Vite",
       "HTML",
       "CSS",
     ],
   },
+    {
+    title: "Mobile",
+    accent: "bg-primary-accent text-white border-primary-accent",
+    skills: [
+      "Expo",
+      "TypeScript",
+      "React Native",
+    ],
+  },
   {
-    title: "Backend & Data",
+    title: "Backend",
     accent: "bg-secondary-accent text-white border-secondary-accent",
-    skills: ["REST APIs", "Node.js", "Python", "MongoDB", "PostgreSQL", "Django"],
+    skills: ["Node.js", "Python", "MongoDB", "Django"],
   },
   {
     title: "Tools",

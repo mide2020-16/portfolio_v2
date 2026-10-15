@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { AppShell } from "@/components/AppShell";
 import { seo, personalInfo } from "@/lib/data/portfolio";
+import { HireMeProvider } from "@/components/hire/HireMeProvider";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -110,15 +111,17 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} ${dmSans.variable} dark h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex transition-colors duration-300">
+      <body className="min-h-full transition-colors duration-300">
         <ThemeProvider>
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
-          <AppShell>
-            {children}
-          </AppShell>
+          <HireMeProvider>
+            <AppShell>
+              {children}
+            </AppShell>
+          </HireMeProvider>
         </ThemeProvider>
       </body>
     </html>

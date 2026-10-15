@@ -16,7 +16,7 @@ import {
   MATRIX_CHARS,
   SCRAMBLE_INTERVAL_MS,
 } from "./navbar.data";
-
+import { useHireMe } from "@/components/hire/HireMeProvider";
 interface NavbarProps {
   showSplash: boolean;
 }
@@ -33,6 +33,7 @@ export function Navbar({ showSplash }: NavbarProps) {
   const lastScrollY = useRef(0);
   const frameRef = useRef<number | null>(null);
 
+  const { openHireMe } = useHireMe();
   // --- MATRIX DECODING ANIMATION ---
   useEffect(() => {
     if (showSplash) return;
@@ -190,8 +191,10 @@ export function Navbar({ showSplash }: NavbarProps) {
           <div className="flex items-center gap-4">
             <ThemeToggle />
 
-            <Link
-              href="#contact"
+            <button
+            type="button"
+            title="Hire Ayomide."
+              onClick={openHireMe}
               className="group relative hidden sm:inline-flex items-center justify-center border-2 border-foreground bg-primary-accent px-6 py-3 text-sm font-black uppercase tracking-wider text-white shadow-[5px_5px_0px_0px_var(--color-foreground)] dark:shadow-[5px_5px_0px_0px_var(--color-foreground)] transition-all duration-150 ease-out hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-[2px_2px_0px_0px_var(--color-foreground)] active:translate-x-1.25 active:translate-y-1.25 active:shadow-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-accent"
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -203,7 +206,7 @@ export function Navbar({ showSplash }: NavbarProps) {
                   />
                 </span>
               </span>
-            </Link>
+            </button>
           </div>
         </div>
       </header>
