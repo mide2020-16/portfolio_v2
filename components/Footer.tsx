@@ -14,7 +14,7 @@ export function Footer() {
             <div className="font-heading font-black text-2xl mb-1">
               Ayomide<span className="text-primary-accent">.</span>
             </div>
-            <p className="text-background/60 text-sm font-medium">Software Engineer | Mathematics B. Sc</p>
+            <p className="text-background/60 text-sm font-medium">Frontend Developer</p>
           </div>
           <div className="flex items-center gap-6 text-sm font-black uppercase tracking-widest text-background/70">
             <Link href="#experience" className="hover:text-background transition-colors">Experience</Link>

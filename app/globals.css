@@ -118,6 +118,128 @@ html {
 }
 
 
+/* Skills marquee */
+.skill-marquee-track {
+  width: max-content;
+  will-change: auto;
+}
+
+.skill-marquee-moving {
+  animation-name: skills-marquee-forward;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  will-change: transform;
+}
+
+/* Alternate directions to give each row a distinct rhythm. */
+.skill-marquee-moving.skill-marquee-reverse {
+  animation-name: skills-marquee-backward;
+}
+
+/* Let people read, hover, and select without moving targets. */
+.group\/row:hover .skill-marquee-track,
+.group\/row:focus-within .skill-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes skills-marquee-forward {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes skills-marquee-backward {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-marquee-moving {
+    animation: none !important;
+    transform: none !important;
+    wimarqueell-change: auto;
+  }
+
+  .skill-marquee-track {
+    max-width: 100%;
+  }
+}
+/* Skills marquee: continuous right-to-left movement */
+
+.skills- {
+  min-width: 0;
+}
+
+.skills-marquee-track {
+  width: max-content;
+  will-change: auto;
+}
+
+.skills-marquee-running {
+  animation: skills-marquee-left linear infinite;
+  will-change: transform;
+}
+
+@keyframes skills-marquee-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Gradually reveal each skill's original icon colors. */
+.skill-icon {
+  transition:
+    filter 600ms ease,
+    opacity 500ms ease,
+    transform 250ms ease;
+  transition-delay: var(--skill-color-delay, 0ms);
+}
+
+/* Stop movement while someone interacts with a skill. */
+.skills-marquee:hover .skills-marquee-track,
+.skills-marquee:focus-within .skills-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Static rows remain manually scrollable when motion is disabled
+   or the category is outside the activation threshold. */
+.skills-marquee-static {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.skills-marquee-static::-webkit-scrollbar {
+  display: none;
+}
+
+/* Honor the visitor's operating-system motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  .skills-marquee-running {
+    animation: none !important;
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .skill-icon {
+    transition-delay: 0ms !important;
+    transition-duration: 0ms !important;
+  }
+}
 .hero-shell {
   position: relative;
   min-height: min(840px, 100svh);

@@ -34,10 +34,10 @@ export const metadata: Metadata = {
         url: seo.ogImage,
         width: 1200,
         height: 630,
-        alt: `${personalInfo.name} — Portfolio`,
+        alt: `${personalInfo.shortName} — Portfolio`,
       },
     ],
-    siteName: `${personalInfo.name} | Portfolio`,
+    siteName: `${personalInfo.shortName} | Portfolio`,
     locale: "en_NG",
   },
 

@@ -1,14 +1,10 @@
-// ============================================================
-//  🎯  PORTFOLIO DATA  — Edit everything here!
-//  All sections of the site pull from this single file.
-// ============================================================
 
 // ─── Personal Info ───────────────────────────────────────────
 export const personalInfo = {
   name: "Efuwape Ayomide Oreoluwa",
-  shortName: "Ayomide",
+  shortName: "Ayomide.",
   title: "Software Engineer",
-  subtitle: "Frontend Engineer & Developer",
+  subtitle: "Frontend Developer",
   bio: "Full-stack software engineer specializing in scalable web systems, clean architecture, and modern web frameworks.",
   email: "efuwapeayomide51@gmail.com",
   location: "Nigeria",
@@ -49,12 +45,9 @@ export const personalInfo = {
 
 // ─── SEO ─────────────────────────────────────────────────────
 export const seo = {
-  /** Used in <title> and og:title */
-  title: "Efuwape Ayomide Oreoluwa | Software Engineer & Frontend Developer",
-  /** Used in meta description and og:description */
+  title: "Efuwape Ayomide Oreoluwa | Frontend Developer",
   description:
-    "Portfolio of Efuwape Ayomide Oreoluwa — a Software Engineer specialising in React, Next.js, and TypeScript. Top 12 Finalist at Codefest Nigeria 2025. B.Sc. Mathematics (2nd Class Upper), Federal University of Agriculture, Abeokuta.",
-  /** Keywords for search engine visibility */
+    "Full-stack software engineer specializing in scalable web systems, clean architecture, and modern web frameworks.",
   keywords: [
     "Efuwape Ayomide",
     "Ayomide Oreoluwa",
@@ -70,88 +63,8 @@ export const seo = {
     "JustJobNG",
     "Hausa AI voice assistant",
   ],
-  /** Your live domain — update when deployed */
   siteUrl: "https://eaoreoluwa.netlify.app",
-  /** 1200×630 image for social sharing — place at public/og-image.png */
   ogImage: "/og-image.png",
-};
-
-// ─── Contact Form ─────────────────────────────────────────────
-export const contactConfig = {
-  formspreeId: "xlgqwdqq",
-};
-
-// ─── Hero IDE Code Panel ──────────────────────────────────────
-/**
- * The code shown inside the IDE widget on the Hero section.
- * Each line is an array of { text, color } tokens for syntax highlighting.
- */
-export const codePanelSnippet = {
-  filename: "developer.ts",
-  /** Language label in the IDE status bar */
-  language: "TypeScript",
-  /** Decorative second tab (greyed out) */
-  secondTab: "projects.ts",
-  lines: [
-    [
-      { text: "interface", color: "#ff2d78" },
-      { text: " Developer ", color: "#5c6dff" },
-      { text: "{", color: "#f5f5f5" },
-    ],
-    [
-      { text: "  name:", color: "#f5f5f5" },
-      { text: " string", color: "#ff2d78" },
-      { text: ";", color: "#f5f5f5" },
-    ],
-    [
-      { text: "  stack:", color: "#f5f5f5" },
-      { text: " string", color: "#ff2d78" },
-      { text: "[];", color: "#f5f5f5" },
-    ],
-    [
-      { text: "  available:", color: "#f5f5f5" },
-      { text: " boolean", color: "#ff2d78" },
-      { text: ";", color: "#f5f5f5" },
-    ],
-    [{ text: "}", color: "#f5f5f5" }],
-    [],
-    [
-      { text: "const", color: "#ff2d78" },
-      { text: " me", color: "#5c6dff" },
-      { text: ":", color: "#f5f5f5" },
-      { text: " Developer", color: "#5c6dff" },
-      { text: " = {", color: "#f5f5f5" },
-    ],
-    [
-      { text: "  name:", color: "#f5f5f5" },
-      { text: ' "Ayomide"', color: "#ffe600" },
-      { text: ",", color: "#f5f5f5" },
-    ],
-    [
-      { text: "  stack:", color: "#f5f5f5" },
-      { text: " [", color: "#f5f5f5" },
-    ],
-    [
-      { text: '    "React"', color: "#ffe600" },
-      { text: ",", color: "#f5f5f5" },
-      { text: ' "Next.js"', color: "#ffe600" },
-      { text: ",", color: "#f5f5f5" },
-    ],
-    [
-      { text: '    "TypeScript"', color: "#ffe600" },
-      { text: ",", color: "#f5f5f5" },
-    ],
-    [
-      { text: "  ]", color: "#f5f5f5" },
-      { text: ",", color: "#f5f5f5" },
-    ],
-    [
-      { text: "  available:", color: "#f5f5f5" },
-      { text: " true", color: "#4ade80" },
-      { text: ",", color: "#f5f5f5" },
-    ],
-    [{ text: "};", color: "#f5f5f5" }],
-  ],
 };
 
 // ─── Achievements ─────────────────────────────────────────────

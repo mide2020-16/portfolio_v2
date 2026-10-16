@@ -1,17 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+
 import { personalInfo } from "@/lib/data/portfolio";
 
 import fullStackAnimation from "@/assets/lottie/dev.json";
 import mobileAppsAnimation from "@/assets/lottie/creative.json";
 import aiSystemsAnimation from "@/assets/lottie/server.json";
+
 import { InteractiveHeroItem } from "./InteractiveHeroItem";
 import { useHireMe } from "../hire/HireMeProvider";
+import { socialIcons } from "../ContactSection";
 
 const heroItems = [
   {
@@ -28,13 +31,251 @@ const heroItems = [
   },
 ];
 
+const socialLinks = [
+  {
+    key: "github",
+    label: "GitHub",
+    href: "https://github.com/mide2020-16",
+  },
+  {
+    key: "linkedin",
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/efuwapeayomide",
+  },
+  {
+    key: "twitter",
+    label: "X",
+    href: "https://x.com/westfiree",
+  },
+];
+
+function HeroSocialLinks({
+  heroInView,
+  reduceMotion,
+}: {
+  heroInView: boolean;
+  reduceMotion: boolean;
+}) {
+  return (
+    <AnimatePresence initial={false}>
+      {heroInView ? (
+        <motion.div
+          key="hero-socials"
+          layout
+          initial={
+            reduceMotion
+              ? false
+              : {
+                  opacity: 0,
+                  y: 8,
+                }
+          }
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={
+            reduceMotion
+              ? undefined
+              : {
+                  opacity: 0,
+                  y: 8,
+                }
+          }
+          transition={{
+            duration: reduceMotion ? 0 : 0.3,
+            ease: "easeOut",
+          }}
+          className="flex items-center gap-2"
+          aria-label="Social profiles"
+        >
+          {socialLinks.map((social) => {
+            const icon = socialIcons[social.key];
+
+            return (
+              <motion.a
+                key={social.key}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit my ${social.label} profile`}
+                // title={social.label}
+                whileHover={
+                  reduceMotion
+                    ? undefined
+                    : {
+                        y: -2,
+                      }
+                }
+                whileTap={
+                  reduceMotion
+                    ? undefined
+                    : {
+                        y: 0,
+                      }
+                }
+                className={[
+                  "group/social relative flex size-10 items-center",
+                  "justify-center border-2 border-zinc-900",
+                  "bg-white text-zinc-900",
+                  "shadow-[3px_3px_0px_0px_rgba(24,24,27,1)]",
+                  "transition-colors duration-200",
+                  "hover:bg-amber-800 hover:text-white",
+                  "dark:border-zinc-100 dark:bg-zinc-900",
+                  "dark:text-zinc-100",
+                  "dark:shadow-[3px_3px_0px_0px_rgba(244,244,245,1)]",
+                  "dark:hover:bg-amber-700",
+                  "focus-visible:outline-none",
+                  "focus-visible:ring-2",
+                  "focus-visible:ring-amber-700",
+                  "focus-visible:ring-offset-2",
+                  "focus-visible:ring-offset-background",
+                  "sm:size-11",
+                ].join(" ")}
+              >
+                <span
+                  aria-hidden="true"
+                  className="flex items-center justify-center text-lg"
+                >
+                  {icon}
+                </span>
+
+                <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap border border-zinc-900 bg-zinc-900 px-2 py-1 text-[9px] font-black uppercase tracking-wider text-white opacity-0 transition-opacity duration-150 group-hover/social:opacity-100 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900">
+                  {social.label}
+                </span>
+              </motion.a>
+            );
+          })}
+        </motion.div>
+      ) : (
+        <motion.div
+          key="floating-socials"
+          layout
+          initial={
+            reduceMotion
+              ? false
+              : {
+                  opacity: 0,
+                  x: -16,
+                }
+          }
+          animate={{
+            opacity: 1,
+            x: 0,
+          }}
+          exit={
+            reduceMotion
+              ? undefined
+              : {
+                  opacity: 0,
+                  x: -16,
+                }
+          }
+          transition={{
+            duration: reduceMotion ? 0 : 0.3,
+            ease: "easeOut",
+          }}
+          className={[
+            "fixed left-2 top-1/2 z-50 -translate-y-1/2",
+            "hidden flex-col gap-2 sm:flex",
+          ].join(" ")}
+          aria-label="Social profiles"
+        >
+          {socialLinks.map((social) => {
+            const icon = socialIcons[social.key];
+
+            return (
+              <motion.a
+                key={social.key}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit my ${social.label} profile`}
+                // title={social.label}
+                whileHover={
+                  reduceMotion
+                    ? undefined
+                    : {
+                        x: 3,
+                      }
+                }
+                whileTap={
+                  reduceMotion
+                    ? undefined
+                    : {
+                        x: 1,
+                      }
+                }
+                className={[
+                  "group/social relative flex size-10 items-center",
+                  "justify-center border-2 border-zinc-900",
+                  "bg-white text-zinc-900",
+                  "shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]",
+                  "transition-colors duration-200",
+                  "hover:bg-amber-800 hover:text-white",
+                  "dark:border-zinc-100 dark:bg-zinc-900",
+                  "dark:text-zinc-100",
+                  "dark:shadow-[4px_4px_0px_0px_rgba(244,244,245,1)]",
+                  "dark:hover:bg-amber-700",
+                  "focus-visible:outline-none",
+                  "focus-visible:ring-2",
+                  "focus-visible:ring-amber-700",
+                  "focus-visible:ring-offset-2",
+                  "focus-visible:ring-offset-background",
+                ].join(" ")}
+              >
+                <span
+                  aria-hidden="true"
+                  className="flex items-center justify-center text-lg"
+                >
+                  {icon}
+                </span>
+
+                <span className="pointer-events-none absolute left-full ml-2 whitespace-nowrap border border-zinc-900 bg-zinc-900 px-2 py-1 text-[9px] font-black uppercase tracking-wider text-white opacity-0 transition-opacity duration-150 group-hover/social:opacity-100 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900">
+                  {social.label}
+                </span>
+              </motion.a>
+            );
+          })}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export function Hero() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const {openHireMe} = useHireMe();
+  const [heroInView, setHeroInView] = useState(true);
+
+  const heroRef = useRef<HTMLElement>(null);
+
+  const { openHireMe } = useHireMe();
+  const reduceMotion = useReducedMotion() ?? false;
+
+  useEffect(() => {
+    const hero = heroRef.current;
+
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHeroInView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.12,
+      },
+    );
+
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
+      ref={heroRef}
       id="top"
-      className="relative flex min-h-[90svh] items-center overflow-hidden px-6 py-16 mt-12 sm:px-8 lg:px-16"
+      className="relative mt-12 flex min-h-[90svh] items-center overflow-hidden px-6 py-16 sm:px-8 lg:px-16"
     >
       {/* Background grid */}
       <div
@@ -77,45 +318,55 @@ export function Hero() {
 
             {/* CTA buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link
-                href="#projects"
-                className="group relative inline-flex items-center justify-center gap-2 border-2 border-zinc-900 dark:border-zinc-100 bg-amber-800 dark:bg-amber-700 px-5 py-3 text-xs font-black uppercase tracking-wider text-white shadow-[5px_5px_0px_0px_rgba(24,24,27,1)] dark:shadow-[5px_5px_0px_0px_rgba(244,244,245,1)] transition-all duration-150 ease-out hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(244,244,245,1)] active:translate-x-1.25 active:translate-y-1.25 active:shadow-none sm:px-6 sm:text-sm"
+              <a
+                href="/cv.pdf"
+                download="Ayomide-CV.pdf"
+                className="group relative inline-flex items-center justify-center gap-2 border-2 border-zinc-900 bg-amber-800 px-5 py-3 text-xs font-black uppercase tracking-wider text-white shadow-[5px_5px_0px_0px_rgba(24,24,27,1)] transition-all duration-150 ease-out hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] active:translate-x-1.25 active:translate-y-1.25 active:shadow-none dark:border-zinc-100 dark:bg-amber-700 dark:shadow-[5px_5px_0px_0px_rgba(244,244,245,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(244,244,245,1)] sm:px-6 sm:text-sm"
               >
-                Selected Work
+                Download CV
                 <ArrowDownRight
                   size={18}
+                  aria-hidden="true"
                   className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:translate-y-0.5"
                 />
-              </Link>
+              </a>
 
               <button
-              onClick={openHireMe}
-              type="button"
-              title="Speak with Ayomide."
-                className="group relative inline-flex items-center justify-center gap-2 border-2 border-zinc-900 dark:border-zinc-100 bg-white dark:bg-zinc-900 px-5 py-3 text-xs font-black uppercase tracking-wider text-zinc-900 dark:text-zinc-100 shadow-[5px_5px_0px_0px_rgba(24,24,27,1)] dark:shadow-[5px_5px_0px_0px_rgba(244,244,245,1)] transition-all duration-150 ease-out hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(244,244,245,1)] active:translate-x-1.25 active:translate-y-1.25 active:shadow-none sm:px-6 sm:text-sm"
+                onClick={openHireMe}
+                type="button"
+                title="Speak with Ayomide."
+                className="group relative inline-flex items-center justify-center gap-2 border-2 border-zinc-900 bg-white px-5 py-3 text-xs font-black uppercase tracking-wider text-zinc-900 shadow-[5px_5px_0px_0px_rgba(24,24,27,1)] transition-all duration-150 ease-out hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] active:translate-x-1.25 active:translate-y-1.25 active:shadow-none dark:border-zinc-100 dark:bg-zinc-900 dark:text-zinc-100 dark:shadow-[5px_5px_0px_0px_rgba(244,244,245,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(244,244,245,1)] sm:px-6 sm:text-sm"
               >
                 Let&apos;s Talk
                 <ArrowUpRight
                   size={18}
+                  aria-hidden="true"
                   className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
               </button>
             </div>
+
+            {/* Social links */}
+            <HeroSocialLinks
+              heroInView={heroInView}
+              reduceMotion={reduceMotion}
+            />
           </div>
         </div>
 
-        {/* Portrait (Visible on Mobile & Desktop) */}
+        {/* Portrait */}
         <div className="relative mx-auto flex h-[380px] w-full max-w-[320px] sm:h-[440px] sm:max-w-[360px] lg:h-130 lg:max-w-105 lg:items-center lg:justify-center">
           <span
             aria-hidden="true"
             className="absolute -right-3 -top-3 z-20 h-16 w-16 border-r-2 border-t-2 border-amber-800 dark:border-amber-500"
           />
+
           <span
             aria-hidden="true"
             className="absolute -bottom-3 -left-3 z-20 h-16 w-16 border-b-2 border-l-2 border-amber-800 dark:border-amber-500"
           />
 
-          <div className="relative h-full w-full overflow-hidden border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 shadow-[12px_12px_0px_0px_rgba(24,24,27,1)] dark:shadow-[12px_12px_0px_0px_rgba(244,244,245,1)]">
+          <div className="relative h-full w-full overflow-hidden border border-zinc-300 bg-zinc-100 shadow-[12px_12px_0px_0px_rgba(24,24,27,1)] dark:border-zinc-700 dark:bg-zinc-800 dark:shadow-[12px_12px_0px_0px_rgba(244,244,245,1)]">
             <Image
               src="/images/sketch.png"
               alt="Ayomide portrait"
@@ -130,7 +381,8 @@ export function Hero() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
                   Creative Developer
                 </p>
-                <p className="mt-1 text-sm sm:text-lg font-black tracking-tight">
+
+                <p className="mt-1 text-sm font-black tracking-tight sm:text-lg">
                   EFUWAPE AYOMIDE OREOLUWA
                 </p>
               </div>

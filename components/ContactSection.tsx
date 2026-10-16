@@ -6,9 +6,9 @@ import { SectionLabel } from "./ui/SectionLabel";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
 import Link from "next/link";
-import { personalInfo, contactConfig } from "@/lib/data/portfolio";
+import { personalInfo } from "@/lib/data/portfolio";
 
-const socialIcons: Record<string, React.ReactNode> = {
+export const socialIcons: Record<string, React.ReactNode> = {
   github: (
     <svg
       xmlns="http://w3.org"
@@ -109,16 +109,10 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (contactConfig.formspreeId === "YOUR_FORMSPREE_ID") {
-      alert(
-        "⚠️ Contact form not yet configured.\n\nGo to https://formspree.io, create a free form, then paste your form ID into contactConfig.formspreeId in lib/data/portfolio.ts",
-      );
-      return;
-    }
     setFormState("loading");
     try {
       const res = await fetch(
-        `https://formspree.io/f/${contactConfig.formspreeId}`,
+        `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREEID}`,
         {
           method: "POST",
           headers: {
