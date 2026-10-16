@@ -45,25 +45,29 @@ export const personalInfo = {
 
 // ─── SEO ─────────────────────────────────────────────────────
 export const seo = {
-  title: "Efuwape Ayomide Oreoluwa | Frontend Developer",
+  title: "Efuwape Ayomide Oreoluwa | Software Engineer",
+
   description:
-    "Full-stack software engineer specializing in scalable web systems, clean architecture, and modern web frameworks.",
+    "Portfolio of Efuwape Ayomide Oreoluwa, a Nigerian software engineer building scalable web applications, modern frontend experiences, and full-stack digital products.",
+
   keywords: [
-    "Efuwape Ayomide",
-    "Ayomide Oreoluwa",
     "Efuwape Ayomide Oreoluwa",
+    "Ayomide Efuwape",
+    "Ayomide Oreoluwa",
     "Software Engineer Nigeria",
-    "Frontend Engineer Nigeria",
+    "Frontend Developer Nigeria",
+    "Full Stack Developer Nigeria",
     "React Developer Nigeria",
-    "Next.js Developer",
+    "Next.js Developer Nigeria",
     "TypeScript Developer",
-    "Codefest Nigeria 2025",
-    "GANI Voice Assistant",
-    "FUNAAB developer",
+    "JavaScript Developer",
+    "Web Developer Nigeria",
     "JustJobNG",
-    "Hausa AI voice assistant",
+    "Codefest 2025",
   ],
+
   siteUrl: "https://eaoreoluwa.netlify.app",
+
   ogImage: "/og-image.png",
 };
 
