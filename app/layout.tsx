@@ -167,7 +167,9 @@ export default function RootLayout({
       <body className="min-h-full transition-colors duration-300">
         <ThemeProvider>
           <HireMeProvider>
-            <AppShell>{children}</AppShell>
+            <AppShell>
+              {children}
+            </AppShell>
           </HireMeProvider>
         </ThemeProvider>
 

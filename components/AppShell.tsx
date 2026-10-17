@@ -11,9 +11,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       {showSplash && (
-        <SplashScreen onFinish={() => setShowSplash(false)} durationMs={2800} />
+        <SplashScreen onFinish={() => setShowSplash(false)} durationMs={2000} />
       )}
-
       <div
         className={`flex min-h-full flex-col transition-opacity duration-700 ${
           showSplash ? "opacity-0 pointer-events-none" : "opacity-100"
@@ -21,7 +20,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       >
         {/* Pass showSplash status to Navbar */}
         <Navbar showSplash={showSplash} />
-        <main className=" md:pt-20 pb-20 md:pb-0">{children}</main>
+        <main>
+          {children}
+        </main>
         <Footer />
       </div>
     </>

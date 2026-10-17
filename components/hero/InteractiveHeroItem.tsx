@@ -77,6 +77,7 @@ export function InteractiveHeroItem({
         }`}
       >
         {title}
+      <span className="text-secondary-accent!">.</span>
       </span>
     </button>
   );

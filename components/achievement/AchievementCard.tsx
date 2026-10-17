@@ -180,7 +180,7 @@ export function AchievementCard({
           <button
             type="button"
             onClick={() => openCertificate(index)}
-            className="group/cert inline-flex min-h-11 items-center justify-center gap-2 border-2 border-border bg-background px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.15em] text-foreground transition-all duration-200 hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-foreground hover:text-background active:translate-x-[3px] active:translate-y-[3px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent focus-visible:ring-offset-2"
+            className="group/cert inline-flex min-h-11 items-center justify-center gap-2 border-2 border-border bg-background px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.15em] text-foreground transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-foreground hover:text-background active:translate-x-0.75 active:translate-y-0.75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent focus-visible:ring-offset-2"
           >
             <Award
               size={16}
