@@ -3,7 +3,7 @@ import { AchievementBanner } from "@/components/achievement/AchievementBanner";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { SkillsGrid } from "@/components/SkillsGrid";
-import { EducationSection } from "@/components/EducationSection";
+import { EducationSection } from "@/components/education/EducationSection";
 import { ContactSection } from "@/components/ContactSection";
 
 export default function Home() {

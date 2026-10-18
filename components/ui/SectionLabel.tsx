@@ -5,7 +5,7 @@ interface SectionLabelProps {
 export function SectionLabel({ title }: SectionLabelProps) {
   return (
     <div className="flex items-center gap-4 mb-12">
-      <h2 className="text-3xl md:text-4xl font-heading font-black tracking-tight">
+      <h2 className="text-3xl md:text-4xl font-heading font-black tracking-tight text-foreground">
         {title}
         <span className="text-secondary-accent">.</span>
       </h2>

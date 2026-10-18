@@ -177,7 +177,7 @@ export function SplashScreen({
         </div>
 
         <div className="mt-3 flex justify-between gap-4 font-mono text-[9px] uppercase tracking-[0.1em] text-black/55 dark:text-white/50">
-          <span>{progress < 100 ? "Loading portfolio" : "Welcome"}</span>
+          <span>{progress < 100 ? "Loading" : "Welcome"}</span>
 
           <span className="tabular-nums text-[#536d00] dark:text-[#d7fa54]">
             {String(progress).padStart(3, "0")}%

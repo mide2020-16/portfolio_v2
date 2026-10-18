@@ -306,29 +306,3 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
 ];
-
-// ─── Education ───────────────────────────────────────────────
-export interface Education {
-  degree: string;
-  institution: string;
-  dateRange: string;
-  classification: string;
-  classificationAccent: string;
-}
-
-export const education: Education[] = [
-  {
-    degree: "B.Sc. Mathematics",
-    institution: "Federal University of Agriculture, Abeokuta",
-    dateRange: "2023 — 2026",
-    classification: "Second Class Upper | 4.21",
-    classificationAccent: "bg-highlight border-border text-foreground",
-  },
-  {
-    degree: "B.Sc. Software Engineering",
-    institution: "Africa Learning University, Nigeria",
-    dateRange: "2023 — 2024",
-    classification: "Software Engineering Programme",
-    classificationAccent: "bg-secondary-accent border-border text-white",
-  },
-];

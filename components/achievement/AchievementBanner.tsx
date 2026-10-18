@@ -124,7 +124,7 @@ export function AchievementBanner() {
     <>
       <section
         aria-label="Achievements and certifications"
-        className="relative overflow-hidden border-y-2 border-border bg-highlight py-8 sm:py-10"
+        className="relative overflow-hidden border-y-2 border-border bg-highlight/80 py-8 sm:py-10"
       >
         {/* Decorative background */}
         <div

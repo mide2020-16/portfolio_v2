@@ -1,6 +1,6 @@
 import fullStackAnimation from "@/assets/lottie/dev.json";
 import mobileAppsAnimation from "@/assets/lottie/creative.json";
-import aiSystemsAnimation from "@/assets/lottie/server.json";
+import educatorAnimation from "@/assets/lottie/educator.json";
 
 export const heroItems = [
   {
@@ -13,6 +13,6 @@ export const heroItems = [
   },
   {
     title: "Educator",
-    animation: aiSystemsAnimation,
+    animation: educatorAnimation,
   },
 ];

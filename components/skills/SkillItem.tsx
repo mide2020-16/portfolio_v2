@@ -26,56 +26,59 @@ export function SkillItem({
   const active = selected || hovered || focused;
   const icon = skillIcons[skill];
 
-  const iconContent = (
-    <span className="relative grid size-8 shrink-0 place-items-center sm:size-9">
-      {icon ? (
-        <Image
-          src={`/skills/${icon}`}
-          alt=""
-          aria-hidden="true"
-          width={36}
-          height={36}
-          draggable={false}
-          className="skill-icon size-8 select-none object-contain sm:size-9"
-          style={
-            {
-              "--skill-color-delay": active ? "0ms" : `${delay}ms`,
-              filter: activated || active ? "grayscale(0%)" : "grayscale(100%)",
-              opacity: activated || active ? 1 : 0.55,
-              transform: active ? "scale(1.08)" : "scale(1)",
-            } as CSSProperties
-          }
-        />
-      ) : (
-        <span className="text-xs font-black text-muted-foreground">
-          {skill.slice(0, 2).toUpperCase()}
-        </span>
-      )}
-    </span>
+  const iconStyle = {
+    "--skill-color-delay": active ? "0ms" : `${delay}ms`,
+    filter: activated || active ? "grayscale(0%)" : "grayscale(100%)",
+    opacity: activated || active ? 1 : 0.55,
+    transform: active ? "scale(1.08)" : "scale(1)",
+  } as CSSProperties;
+
+  const content = (
+    <>
+      <span className="grid size-8 shrink-0 place-items-center sm:size-9">
+        {icon ? (
+          <Image
+            src={`/skills/${icon}`}
+            alt=""
+            aria-hidden="true"
+            width={36}
+            height={36}
+            draggable={false}
+            className="skill-icon size-8 select-none object-contain sm:size-9"
+            style={iconStyle}
+          />
+        ) : (
+          <span className="text-xs font-black text-muted-foreground">
+            {skill.slice(0, 2).toUpperCase()}
+          </span>
+        )}
+      </span>
+
+      <span
+        className={[
+          "whitespace-nowrap",
+          "text-xs font-semibold sm:text-sm",
+          "transition-colors duration-300",
+          active ? "text-foreground" : "text-muted-foreground",
+        ].join(" ")}
+      >
+        {skill}
+      </span>
+    </>
   );
 
-  const label = (
-    <span
-      className={[
-        "whitespace-nowrap text-xs font-semibold sm:text-sm",
-        "transition-colors duration-300",
-        active ? "text-foreground" : "text-muted-foreground",
-      ].join(" ")}
-    >
-      {skill}
-    </span>
-  );
-
-  // The repeated sequence is purely visual.
-  // Do not add duplicate skills to the keyboard or screen-reader flow.
   if (duplicate) {
     return (
       <div
         aria-hidden="true"
-        className="pointer-events-none flex min-h-12 shrink-0 items-center gap-2.5 rounded-xl border border-border/70 bg-background/70 px-3.5 py-2.5 sm:px-4"
+        className={[
+          "flex min-h-12 shrink-0 items-center gap-2.5",
+          "rounded-xl border border-border/70",
+          "bg-background/70",
+          "px-3.5 py-2.5 sm:px-4",
+        ].join(" ")}
       >
-        {iconContent}
-        {label}
+        {content}
       </div>
     );
   }
@@ -93,7 +96,8 @@ export function SkillItem({
         "group/skill relative flex min-h-12 shrink-0 items-center gap-2.5",
         "rounded-xl border px-3.5 py-2.5",
         "transition-[border-color,background-color,box-shadow]",
-        "duration-300 ease-out sm:px-4",
+        "duration-300 ease-out",
+        "touch-manipulation",
         "focus-visible:z-20 focus-visible:outline-none",
         "focus-visible:ring-2 focus-visible:ring-primary-accent",
         "focus-visible:ring-offset-2 focus-visible:ring-offset-card",
@@ -102,8 +106,7 @@ export function SkillItem({
           : "border-border/70 bg-background/70 hover:border-primary-accent/40",
       ].join(" ")}
     >
-      {iconContent}
-      {label}
+      {content}
 
       {selected && (
         <motion.span

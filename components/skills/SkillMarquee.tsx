@@ -10,6 +10,8 @@ type SkillMarqueeProps = {
   categoryIndex: number;
 };
 
+const directionPattern = [false, true, true, false];
+
 export function SkillMarquee({
   category,
   inView,
@@ -19,73 +21,130 @@ export function SkillMarquee({
   categoryIndex,
 }: SkillMarqueeProps) {
   const skills = category.skills;
+
   const shouldMove = inView && !reduceMotion && skills.length > 1;
-  const groups = shouldMove ? [0, 1] : [0];
+
+  const reverseDirection =
+    directionPattern[categoryIndex % directionPattern.length];
+
+  const duration = Math.max(
+    24,
+    Math.min(45, skills.length * 2.8),
+  );
 
   return (
     <div
       className={[
         "skills-marquee group/marquee relative min-w-0",
-        "h-full overflow-hidden rounded-xl",
-        "focus-within:overflow-x-auto",
-        "motion-safe:scroll-smooth",
+        "rounded-xl",
       ].join(" ")}
       role="region"
       aria-label={`${category.title} skills`}
-      tabIndex={0}
     >
-      {/* Left and right edge fades */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-4 bg-linear-to-r from-card to-transparent sm:w-7"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-4 bg-linear-to-l from-card to-transparent sm:w-7"
-      />
-
+      {/* ─────────────────────────────
+          MOBILE
+          Natural horizontal scrolling.
+      ───────────────────────────── */}
       <div
         className={[
-          "skills-marquee-track flex h-full w-max items-center",
-          shouldMove ? "skills-marquee-running" : "",
-          categoryIndex % 2 === 0 ? "skills-marquee-reverse" : "",
+          "skills-mobile-scroll",
+          "flex items-center gap-2.5",
+          "overflow-x-auto overflow-y-hidden",
+          "pb-1",
+          "scroll-smooth",
+          "touch-pan-x",
+          "[-ms-overflow-style:none]",
+          "scrollbar-none",
+          "[&::-webkit-scrollbar]:hidden",
+          "sm:hidden",
         ].join(" ")}
-        style={
-          shouldMove
-            ? {
-                animationDuration: `${Math.max(
-                  24,
-                  Math.min(45, skills.length * 2.8),
-                )}s`,
-                animationDelay: `${categoryIndex * 0.12}s`,
-              }
-            : undefined
-        }
       >
-        {groups.map((groupIndex) => {
-          const duplicate = groupIndex === 1;
+        {skills.map((skill, skillIndex) => (
+          <SkillItem
+            key={`${skill}-${skillIndex}`}
+            skill={skill}
+            selected={selectedSkill === skill}
+            activated={inView}
+            delay={categoryIndex * 160 + skillIndex * 100}
+            onSelect={() => onSelect(skill)}
+          />
+        ))}
+      </div>
 
-          return (
+      {/* ─────────────────────────────
+          DESKTOP
+          Animated marquee.
+      ───────────────────────────── */}
+      <div
+        className={[
+          "relative hidden min-w-0 overflow-hidden rounded-xl sm:block",
+        ].join(" ")}
+        tabIndex={0}
+      >
+        {/* Edge fades */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 bg-linear-to-r from-card to-transparent lg:w-8"
+        />
+
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 bg-linear-to-l from-card to-transparent lg:w-8"
+        />
+
+        <div
+          className={[
+            "skills-marquee-track flex h-full w-max items-center",
+            shouldMove && "skills-marquee-running",
+            shouldMove &&
+              reverseDirection &&
+              "skills-marquee-reverse",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+          style={
+            shouldMove
+              ? {
+                  animationDuration: `${duration}s`,
+                  animationDelay: `${categoryIndex * 0.12}s`,
+                }
+              : undefined
+          }
+        >
+          {/* Original sequence */}
+          <div className="flex shrink-0 items-center gap-3 pr-3">
+            {skills.map((skill, skillIndex) => (
+              <SkillItem
+                key={`${skill}-${skillIndex}`}
+                skill={skill}
+                selected={selectedSkill === skill}
+                activated={inView}
+                delay={categoryIndex * 160 + skillIndex * 100}
+                onSelect={() => onSelect(skill)}
+              />
+            ))}
+          </div>
+
+          {/* Visual duplicate */}
+          {shouldMove && (
             <div
-              key={`${category.title}-group-${groupIndex}`}
-              aria-hidden={duplicate || undefined}
-              className="flex shrink-0 items-center gap-2.5 pr-2.5 sm:gap-3 sm:pr-3"
+              aria-hidden="true"
+              className="flex shrink-0 items-center gap-3 pr-3"
             >
               {skills.map((skill, skillIndex) => (
                 <SkillItem
-                  key={`${skill}-${skillIndex}`}
+                  key={`duplicate-${skill}-${skillIndex}`}
                   skill={skill}
-                  selected={!duplicate && selectedSkill === skill}
-                  activated={!duplicate && inView}
-                  delay={categoryIndex * 160 + skillIndex * 100}
-                  duplicate={duplicate}
-                  onSelect={() => onSelect(skill)}
+                  selected={false}
+                  activated={false}
+                  delay={0}
+                  duplicate
+                  onSelect={() => {}}
                 />
               ))}
             </div>
-          );
-        })}
+          )}
+        </div>
       </div>
     </div>
   );
