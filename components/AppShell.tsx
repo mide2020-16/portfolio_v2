@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { SplashScreen } from "@/components/SplashScreen";
 import { Navbar } from "@/components/navbar/Navbar";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/footer/Footer";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [showSplash, setShowSplash] = useState(true);
