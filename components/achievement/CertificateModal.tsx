@@ -51,12 +51,12 @@ export function CertificateModal({
         closeModal();
       }
 
-      if (event.key === "ArrowRight") {
+      if (event.key === "ChevronRight") {
         event.preventDefault();
         handleNextCert();
       }
 
-      if (event.key === "ArrowLeft") {
+      if (event.key === "ChevronLeft") {
         event.preventDefault();
         handlePrevCert();
       }

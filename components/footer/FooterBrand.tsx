@@ -19,12 +19,7 @@ export function FooterBrand() {
       </Link>
 
       <p className="mt-1 text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground">
-        Creative Developer
-      </p>
-
-      <p className="mt-4 max-w-sm text-sm leading-7 text-muted-foreground">
-        Building thoughtful digital experiences through code, creativity,
-        and problem-solving.
+        Software Engineer.
       </p>
     </div>
   );

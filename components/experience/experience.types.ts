@@ -1,5 +1,11 @@
 export type ProjectPlatform = "web" | "desktop" | "mobile";
 export type ExperienceGroupKind = "employment" | "personal";
+export type ProjectTopic =
+  | "web-applications"
+  | "mobile-applications"
+  | "ai-machine-learning"
+  | "backend-apis"
+  | "developer-tools";
 
 export interface CareerMilestone {
   role: string;
@@ -22,6 +28,20 @@ export interface ExperienceProject {
   featured?: boolean;
   link?: string;
   recognition?: string;
+  topics?: ProjectTopic[];
+}
+
+export interface ExperienceAchievement {
+  id: string;
+  title: string;
+  caseReference: string;
+  dateRange: string;
+  summary: string;
+  context: string;
+  contribution: string;
+  evidence: string[];
+  associatedProjectIds?: string[];
+  certificateImages?: string[];
 }
 
 export interface ExperienceGroup {
@@ -37,6 +57,7 @@ export interface ExperienceGroup {
   milestones?: CareerMilestone[];
   highlights?: string[];
   projects?: ExperienceProject[];
+  achievements?: ExperienceAchievement[];
 }
 
 export type ExperienceView = "home" | "all";

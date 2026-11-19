@@ -3,6 +3,7 @@ interface SectionLabelProps {
 }
 
 export function SectionLabel({ title }: SectionLabelProps) {
+  if (title === "") return;
   return (
     <div className="flex items-center gap-4 mb-12">
       <h2 className="text-3xl md:text-4xl font-heading font-black tracking-tight text-foreground">

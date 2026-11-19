@@ -3,6 +3,7 @@ import trophyAnimation from "@/assets/lottie/trophy.json";
 import { Award, ExternalLink } from "lucide-react";
 import { achievements } from "@/lib/data/portfolio";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 interface AchievementCardProps {
   item: (typeof achievements)[0];
@@ -176,6 +177,9 @@ export function AchievementCard({
 
       {/* Right: actions and badge */}
       <div className="flex w-full flex-wrap items-center justify-between gap-3 md:w-auto md:justify-end">
+        <Link href={`/achievements/${item.id}`} className="inline-flex min-h-11 items-center justify-center gap-2 px-2 py-2 text-[10px] font-black uppercase tracking-[.12em] text-muted-foreground hover:text-foreground">
+          Case file <ExternalLink size={13} />
+        </Link>
         {hasCert && (
           <button
             type="button"

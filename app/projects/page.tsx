@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ChevronLeft, ArrowUpRight } from "lucide-react";
 import { allProjects } from "@/components/experience/experience.data";
 import { ProjectsDirectory } from "@/components/projects/ProjectsDirectory";
 
@@ -19,7 +19,7 @@ export default function ProjectsPage() {
             href="/#projects"
             className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft size={15} aria-hidden="true" />
+            <ChevronLeft size={15} aria-hidden="true" />
             Back to home
           </Link>
 

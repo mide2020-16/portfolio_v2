@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { allProjects } from "@/components/experience/experience.data";
 import { ProjectShowcaseCard } from "./ProjectShowcaseCard";
+import { SectionLabel } from "../ui/SectionLabel";
 
 export function ProjectsSection() {
   const featuredProjects = allProjects
@@ -17,22 +18,9 @@ export function ProjectsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         <div className="mb-9 flex flex-col gap-5 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
-            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary-accent sm:text-xs">
-              Selected work / 2024 — now
-            </p>
-
-            <h2
-              id="projects-heading"
-              className="mt-3 font-heading text-3xl font-black leading-tight text-foreground sm:text-4xl lg:text-5xl"
-            >
-              Products built to{" "}
-              <span className="text-secondary-accent">solve real problems.</span>
-            </h2>
-
-            <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
-              A selection of products and experiments across web development,
-              mobile experiences, AI, and practical software systems.
-            </p>
+            <SectionLabel
+              title="Projects"
+            />
           </div>
 
           <Link
@@ -68,10 +56,10 @@ export function ProjectsSection() {
         <div className="mt-8 flex justify-center sm:mt-10">
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-2 py-2 text-sm font-bold text-foreground transition-colors hover:text-secondary-accent"
+            className="group inline-flex items-center gap-2 py-2 text-sm font-bold text-foreground transition-colors hover:text-secondary-accent uppercase"
           >
-            Explore the complete project archive
-            <ArrowRight
+            View all projects
+            <ChevronRight
               size={16}
               className="transition-transform group-hover:translate-x-1"
               aria-hidden="true"

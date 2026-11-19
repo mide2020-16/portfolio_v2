@@ -63,14 +63,16 @@ function ScreenContent({ src, alt, kind }: ScreenProps) {
 export function MacBookMockup({
   screenshot,
   title,
+  isOpen = true,
 }: {
   screenshot?: string;
   title: string;
+  isOpen?: boolean;
 }) {
   return (
     <div className="relative mx-auto w-full max-w-[690px] px-1 pb-2 pt-1">
       {/* Display lid */}
-      <div className="relative z-10 mx-auto w-[94%] rounded-t-[14px] border-[5px] border-b-[4px] border-[#30343a] bg-[#0a0b0d] p-[3px] shadow-[0_16px_30px_rgba(15,23,42,0.22)] sm:rounded-t-[18px] sm:border-[7px] sm:border-b-[5px] sm:p-[4px]">
+      <div className={`relative z-10 mx-auto origin-bottom w-[94%] rounded-t-[14px] border-[5px] border-b-[4px] border-[#30343a] bg-[#0a0b0d] p-[3px] shadow-[0_16px_30px_rgba(15,23,42,0.22)] transition-transform duration-700 ease-out motion-reduce:transform-none sm:rounded-t-[18px] sm:border-[7px] sm:border-b-[5px] sm:p-[4px] ${isOpen ? "[transform:perspective(1100px)_rotateX(0deg)]" : "[transform:perspective(1100px)_rotateX(-58deg)]"}`}>
         <div className="relative aspect-[16/10] overflow-hidden rounded-[5px] bg-slate-900 sm:rounded-[8px]">
           <ScreenContent
             src={screenshot}
@@ -147,11 +149,13 @@ export function ProjectDeviceStage({
   desktopScreenshot,
   mobileScreenshot,
   title,
+  isOpen = true,
 }: {
   platform: ProjectPlatform;
   desktopScreenshot?: string;
   mobileScreenshot?: string;
   title: string;
+  isOpen?: boolean;
 }) {
   return (
     <div className="relative isolate flex min-h-[260px] items-center justify-center sm:min-h-[350px] sm:px-6 sm:py-10 lg:min-h-[395px]">
@@ -163,18 +167,10 @@ export function ProjectDeviceStage({
             "repeating-linear-gradient(to bottom, transparent 0, transparent 25px, rgba(100,116,139,.15) 26px, transparent 27px)",
         }}
       />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-14 top-8 size-40 rounded-full border border-amber-900/10"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-10 bottom-0 size-36 rounded-full border border-amber-900/10"
-      />
 
       {platform === "desktop" && (
         <div className="relative z-10 w-full">
-          <MacBookMockup screenshot={desktopScreenshot} title={title} />
+          <MacBookMockup screenshot={desktopScreenshot} title={title} isOpen={isOpen} />
         </div>
       )}
 
@@ -187,7 +183,7 @@ export function ProjectDeviceStage({
       {platform === "web" && (
         <div className="relative z-10 flex w-full items-center justify-center">
           <div className="w-[87%] translate-x-[-3%] sm:w-[88%] sm:translate-x-[-4%]">
-            <MacBookMockup screenshot={desktopScreenshot} title={title} />
+            <MacBookMockup screenshot={desktopScreenshot} title={title} isOpen={isOpen} />
           </div>
           <div className="absolute bottom-0 right-[2%] z-20 w-[31%] rotate-[4deg] transition-transform duration-500 sm:right-[4%] sm:w-[25%] sm:hover:rotate-0">
             <IPhone17Mockup screenshot={mobileScreenshot} title={title} />

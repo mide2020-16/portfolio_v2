@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Code2, Monitor, Smartphone, Laptop } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { ExperienceProject } from "./experience.types";
 import { ProjectDeviceStage } from "./DeviceMockups";
 

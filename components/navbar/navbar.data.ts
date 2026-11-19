@@ -1,6 +1,5 @@
 import { Home, Briefcase, Code, Mail } from "lucide-react";
 
-
 export const BRAND_NAME = "Ayomide";
 export const MATRIX_CHARS = BRAND_NAME.split("");
 export const SCRAMBLE_INTERVAL_MS = 45;
@@ -9,15 +8,30 @@ export const DECELERATION_MS = 28;
 export const DECELERATION_POWER = 1.35;
 
 export const NAV_LINKS = [
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
+  { slug: "experience", label: "Experience" },
+  { slug: "projects", label: "Projects" },
+  { slug: "skills", label: "Skills" },
+  { slug: "contact", label: "Contact" },
 ] as const;
 
 export const MOBILE_NAV_ITEMS = [
-  { href: "#top", label: "Home", icon: Home },
-  { href: "#experience", label: "Exp", icon: Briefcase },
-  { href: "#projects", label: "Work", icon: Code },
-  { href: "#contact", label: "Contact", icon: Mail },
+  { slug: "top", label: "Home", icon: Home },
+  { slug: "experience", label: "Exp", icon: Briefcase },
+  { slug: "projects", label: "Work", icon: Code },
+  { slug: "contact", label: "Contact", icon: Mail },
 ] as const;
+
+/**
+ * Resolves the href based on the current pathname.
+ * - On Home ("/"): returns "#experience" (or "#top")
+ * - On other pages: returns "/experience" (or "/" for "top")
+ */
+export function getNavHref(slug: string, pathname: string): string {
+  const isHome = pathname === "/";
+
+  if (isHome || slug === "skiils" || slug === "contact") {
+    return `#${slug}`;
+  }
+
+  return slug === "skills" ? `/#${slug}` : slug === "top" ? "/" : `/${slug}`;
+}

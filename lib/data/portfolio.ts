@@ -1,4 +1,3 @@
-
 // ─── Personal Info ───────────────────────────────────────────
 export const personalInfo = {
   name: "Efuwape Ayomide Oreoluwa",
@@ -73,188 +72,34 @@ export const seo = {
 
 // ─── Achievements ─────────────────────────────────────────────
 export interface Achievement {
+  id: string;
   title: string;
   subtitle: string;
   certificateImage: string;
+  summary: string;
 }
 
 export const achievements: Achievement[] = [
   {
+    id: "codefest-nigeria-2025",
     title: "Codefest Nigeria 2025",
     subtitle: "Top 12 Finalist — GANI Hausa Dialect Voice Assistant",
     certificateImage: "/certificates/cf_cert.jpg",
+    summary: "Recognized as a Top 12 finalist for GANI, a Hausa dialect voice assistant. The related project record documents the voice-oriented AI work and custom text-to-speech infrastructure.",
   },
   {
+    id: "professional-development-skills",
     title: "Professional Development Skills",
     subtitle: "Participated in the Professional Development Skills from ALX Africa",
     certificateImage: "/certificates/pf_cert.jpg",
+    summary: "Participation record for ALX Africa's Professional Development Skills programme.",
   },
-    {
+  {
+    id: "software-engineering-programme",
     title: "Software Engineering",
-    subtitle: "Participated in a 12 months Software Engineering Programme form ALX Africa",
+    subtitle: "Participated in a 12 months Software Engineering Programme from ALX Africa",
     certificateImage: "",
-  },
-];
-
-// ─── Experience ───────────────────────────────────────────────
-export interface Experience {
-  role: string;
-  company: string;
-  date: string;
-  type: string;
-  description: string;
-  accent: string;
-}
-
-export const experiences: Experience[] = [
-  {
-    role: "Frontend Developer",
-    company: "Maekandex Communications",
-    date: "2025 — Present",
-    type: "Product delivery",
-    description:
-      "Building responsive web and mobile interfaces across live products including LetsMeet, 9jaBuzz, Pluser Games, LITeGre Prediction and JustJobNG. I ship reusable React/Next.js components, REST API integrations and accessible UI improvements with product teams.",
-    accent: "bg-primary-accent",
-  },
-  {
-    role: "Voluntary Intern Software Engineer",
-    company: "ICTREC",
-    date: "Feb 2025 — Sep 2025",
-    type: "University systems",
-    description:
-      "Maintained campus web portals serving 10,000+ students and staff, diagnosed software and database connectivity issues, supported deployment updates, testing and system stability work.",
-    accent: "bg-primary-accent",
-  },
-  {
-    role: "Junior Developer → Frontend Developer",
-    company: "Maekandex Communications",
-    date: "2024 — 2025",
-    type: "Growth path",
-    description:
-      "Developed frontend features under senior guidance, connected interfaces to APIs, and strengthened delivery habits through debugging, testing, code reviews and Agile collaboration.",
-    accent: "bg-secondary-accent",
-  },
-];
-
-// ─── Projects ────────────────────────────────────────────────
-export interface Project {
-  title: string;
-  slug: string; // used for image folder: public/projects/<slug>/
-  description: string;
-  caseStudy: string;
-  role: string;
-  year: string;
-  visual: "events" | "voice" | "weather" | "hostel" | "jobs" | "schedule";
-  highlights: string[];
-  gallery: string[];
-  stack: string[];
-  demoUrl?: string;
-  sourceUrl?: string;
-  featured?: boolean;
-  /**
-   * Array of image paths relative to /public.
-   * Place screenshots at public/projects/<slug>/1.png, 2.png etc.
-   * The gallery button only appears when images.length > 0.
-   */
-  images: string[];
-}
-
-export const projects: Project[] = [
-  {
-    title: "Vestry",
-    slug: "vestry",
-    description:
-      "A multi-tenant event and ticketing ecosystem built to make registration, merch and meal selections feel effortless.",
-    caseStudy: "Vestry is designed around the moving parts of an event day: discovering an event, selecting a ticket, choosing extras and receiving a clear confirmation. The architecture supports dynamic organiser rules and secure access without losing the calm, mobile-friendly experience attendees need.",
-    role: "Product engineer",
-    year: "2026",
-    visual: "events",
-    highlights: ["Multi-organiser architecture", "Secure token flows", "Mobile-first checkout"],
-    gallery: ["Event discovery", "Ticket selection", "Attendee confirmation"],
-    stack: ["Next.js", "TypeScript", "Node.js", "MongoDB", "AWS"],
-    demoUrl: "https://vestry-beta.vercel.app/",
-    sourceUrl: "#",
-    featured: true,
-    images: [],
-  },
-  {
-    title: "GANI Hausa Voice Assistant",
-    slug: "gani",
-    description:
-      "A localised voice assistant that brings natural Hausa conversation to an AI experience - a Top 12 Codefest Nigeria 2025 finalist.",
-    caseStudy: "GANI turns a high-friction interface into a familiar conversation. I helped shape the path from spoken Hausa input to an LLM response and real-time audio output, with a focus on accessibility and a distinctly local use case.",
-    role: "AI interface builder",
-    year: "2025",
-    visual: "voice",
-    highlights: ["Top 12 / Codefest 2025", "Real-time TTS pipeline", "Dialect-aware interaction"],
-    gallery: ["Voice prompt", "Conversation state", "Audio response"],
-    stack: ["Next.js", "Python", "Flask", "LLM", "Railway"],
-    demoUrl: "#",
-    sourceUrl: "#",
-    featured: true,
-    images: [],
-  },
-  {
-    title: "SkyView",
-    slug: "sky-view",
-    description:
-      "A weather and environmental monitor that translates live atmospheric data into a more useful daily outlook.",
-    caseStudy: "SkyView began with a simple question: can weather data feel human? The interface pairs a calm visual system with location search, live API data and information that remains readable at a glance across device sizes.",
-    role: "Frontend engineer",
-    year: "2025",
-    visual: "weather",
-    highlights: ["Live atmospheric data", "Location-aware forecasts", "Dynamic visual states"],
-    gallery: ["Today at a glance", "Location search", "Hourly conditions"],
-    stack: ["React", "REST APIs", "Web APIs", "CSS3"],
-    demoUrl: "https://my-weather-rho-coral.vercel.app/",
-    sourceUrl: "#",
-    images: [],
-  },
-  {
-    title: "HostelHub",
-    slug: "hostelhub",
-    description:
-      "A full-stack student accommodation experience that makes searching, filtering and reserving hostel spaces simpler on mobile.",
-    caseStudy: "HostelHub focuses on a practical, high-stakes workflow: finding a room without confusing availability or stale information. The mobile-first product brings availability, filters and booking status into one clear flow.",
-    role: "Mobile product developer",
-    year: "2026",
-    visual: "hostel",
-    highlights: ["Real-time room status", "Search and filter UX", "Cross-platform mobile flow"],
-    gallery: ["Hostel search", "Room details", "Booking status"],
-    stack: ["React Native", "Expo", "Django", "Python"],
-    demoUrl: "#",
-    sourceUrl: "#",
-    images: [],
-  },
-  {
-    title: "JustJobNG",
-    slug: "justjobng",
-    description: "A clearer employment search experience for Nigerian job seekers, from keyword discovery to application tracking.",
-    caseStudy: "JustJobNG puts the important work first: helping people locate relevant opportunities and act on them quickly. I focused on a navigable, responsive frontend system that keeps search, categories and the next step in view.",
-    role: "Frontend developer",
-    year: "2025",
-    visual: "jobs",
-    highlights: ["Keyword and category search", "Responsive dashboard", "Application tracking"],
-    gallery: ["Opportunity feed", "Smart search", "Application timeline"],
-    stack: ["Next.js", "Node.js", "PostgreSQL", "REST APIs"],
-    demoUrl: "https://www.justjobng.online",
-    sourceUrl: "#",
-    images: [],
-  },
-  {
-    title: "Kyros",
-    slug: "kyros",
-    description: "An automated course scheduling system designed to eliminate lecturer, room and timetable conflicts.",
-    caseStudy: "Kyros applies algorithmic graph theory to a human scheduling headache. The system models constraints so administrators can generate conflict-free combinations, while the product surface keeps the result understandable for everyday users.",
-    role: "Software developer",
-    year: "2025",
-    visual: "schedule",
-    highlights: ["Constraint-satisfaction logic", "Conflict-free schedules", "Admin-friendly workflows"],
-    gallery: ["Schedule overview", "Conflict resolution", "Course allocation"],
-    stack: ["Next.js", "Node.js", "MongoDB", "Graph Theory"],
-    demoUrl: "#",
-    sourceUrl: "#",
-    images: [],
+    summary: "Participation record for a 12-month Software Engineering Programme from ALX Africa.",
   },
 ];
 
@@ -279,7 +124,7 @@ export const skillCategories: SkillCategory[] = [
       "CSS",
     ],
   },
-    {
+  {
     title: "Mobile",
     accent: "bg-primary-accent text-white border-primary-accent",
     skills: [

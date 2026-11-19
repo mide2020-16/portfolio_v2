@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-  ArrowLeft,
+  ChevronLeft,
   ArrowUpRight,
   CheckCircle2,
   Code2,
@@ -36,6 +36,12 @@ export async function generateMetadata({
   return {
     title: `${project.name} | Projects | Ayomide`,
     description: project.summary,
+    alternates: { canonical: `/projects/${project.id}` },
+    openGraph: {
+      title: `${project.name} | Ayomide`,
+      description: project.summary,
+      images: project.desktopScreenshot ? [project.desktopScreenshot] : undefined,
+    },
   };
 }
 
@@ -71,7 +77,7 @@ export default async function ProjectDetailPage({
             href="/projects"
             className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft size={15} aria-hidden="true" />
+            <ChevronLeft size={15} aria-hidden="true" />
             All projects
           </Link>
 

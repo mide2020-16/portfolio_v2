@@ -16,7 +16,7 @@ export function AchievementBanner() {
   );
 
   const previousFocusRef = useRef<HTMLElement | null>(null);
-  const reduceMotion = useReducedMotion() || null
+  const reduceMotion = useReducedMotion() ?? false;
   const activeAchievement =
     selectedCertIndex !== null
       ? achievements[selectedCertIndex]
@@ -123,6 +123,7 @@ export function AchievementBanner() {
   return (
     <>
       <section
+        id="achievements"
         aria-label="Achievements and certifications"
         className="relative overflow-hidden border-y-2 border-border bg-highlight/80 py-8 sm:py-10"
       >

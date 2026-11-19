@@ -19,6 +19,7 @@ export function ExperienceSection({
   const displayedGroups = experienceGroups.filter(
     (group) => group.kind === "employment",
   );
+  const isExpanded = view === "all" ? true : false;
 
   return (
     <section
@@ -42,14 +43,14 @@ export function ExperienceSection({
       <div className="relative mx-auto max-w-6xl space-y-5 px-4 sm:px-8">
         <div className="mb-7 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
             <SectionLabel
-              title={view === "home" ? "Experience" : "Experience & Achievements"}
+              title={view === "home" ? "Experiences" : ""}
             />
           {view === "home" && showWorkLink && (
             <Link
               href="/experience"
               className="group inline-flex w-fit shrink-0 items-center gap-2 border-2 border-foreground bg-foreground px-4 py-3 text-xs font-black uppercase tracking-[0.13em] text-background shadow-[4px_4px_0px_0px_var(--secondary-accent)] transition-[transform,box-shadow] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_var(--secondary-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent focus-visible:ring-offset-2"
             >
-              View experience & achievements
+              experiences & achievements
               <ArrowUpRight
                 size={15}
                 className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -67,7 +68,7 @@ export function ExperienceSection({
               index={index}
               view={view}
               shouldReduceMotion={shouldReduceMotion}
-              defaultExpanded={false}
+              defaultExpanded={isExpanded}
             />
           ))}
         </div>

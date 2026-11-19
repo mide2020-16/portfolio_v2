@@ -14,15 +14,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <SplashScreen onFinish={() => setShowSplash(false)} durationMs={2000} />
       )}
       <div
-        className={`flex min-h-full flex-col transition-opacity duration-700 ${
-          showSplash ? "opacity-0 pointer-events-none" : "opacity-100"
-        }`}
+        className={`flex min-h-full flex-col transition-opacity duration-700 ${showSplash ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
       >
-        {/* Pass showSplash status to Navbar */}
         <Navbar showSplash={showSplash} />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <Footer />
       </div>
     </>

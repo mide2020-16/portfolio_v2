@@ -1,6 +1,9 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { MOBILE_NAV_ITEMS } from "./navbar.data";
+import { usePathname } from "next/navigation";
+import { MOBILE_NAV_ITEMS, getNavHref } from "./navbar.data";
 import { ArrowUpRight } from "lucide-react";
 import { useHireMe } from "../hire/HireMeProvider";
 
@@ -28,10 +31,15 @@ const iconStyles = [
 ];
 
 export function MobileNav() {
-  const [activeHref, setActiveHref] = useState("#top");
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  const [activeSection, setActiveSection] = useState("top");
   const { openHireMe } = useHireMe();
 
   useEffect(() => {
+    if (!isHome) return;
+
     const sectionIds = ["top", "experience", "projects", "contact"];
 
     const sections = sectionIds
@@ -47,7 +55,7 @@ export function MobileNav() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
         if (visible.length) {
-          setActiveHref(`#${visible[0].target.id}`);
+          setActiveSection(visible[0].target.id);
         }
       },
       {
@@ -59,7 +67,7 @@ export function MobileNav() {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
+  }, [isHome]);
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 px-3 pb-[calc(env(safe-area-inset-bottom)+10px)] md:hidden">
@@ -83,17 +91,22 @@ export function MobileNav() {
       >
         {/* Navigation */}
         <div className="flex min-w-0 flex-1 items-center">
-          {MOBILE_NAV_ITEMS.map(({ href, label, icon: Icon }, index) => {
-            const isActive = activeHref === href;
+          {MOBILE_NAV_ITEMS.map(({ slug, label, icon: Icon }, index) => {
+            const href = getNavHref(slug, pathname);
+            const isActive = isHome
+              ? activeSection === slug
+              : pathname === href;
             const iconStyle = iconStyles[index % iconStyles.length];
 
             return (
               <Link
-                key={href}
+                key={slug}
                 href={href}
                 aria-label={label}
-                aria-current={isActive ? "location" : undefined}
-                onClick={() => setActiveHref(href)}
+                aria-current={isActive ? (isHome ? "location" : "page") : undefined}
+                onClick={() => {
+                  if (isHome) setActiveSection(slug);
+                }}
                 className="
                   group
                   flex

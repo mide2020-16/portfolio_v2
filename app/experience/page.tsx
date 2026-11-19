@@ -1,49 +1,38 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, BriefcaseBusiness } from "lucide-react";
+import { ChevronLeft, ArrowUpRight } from "lucide-react";
 import { ExperienceSection } from "@/components/experience/ExperienceSection";
 
 export const metadata: Metadata = {
-  title: "Experience | Ayomide",
+  title: "Experience",
   description:
     "Explore Ayomide's software development experience, role progression, product contributions, and technical responsibilities.",
 };
 
 export default function ExperiencePage() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <section className="border-b-2 border-border bg-highlight/50">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-8 sm:py-16 lg:py-20">
+    <main className="min-h-screen bg-background text-foreground mt-12">
+      <section className="bg-highlight/70">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-8 sm:py-14 lg:py-18">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft size={15} aria-hidden="true" />
-            Back to home
+            <ChevronLeft size={15} aria-hidden="true" />
+            home
           </Link>
 
-          <div className="mt-8 max-w-3xl">
-            <span className="inline-flex items-center gap-2 border-2 border-border bg-background px-3 py-2 text-[10px] font-black uppercase tracking-[0.15em] text-foreground sm:text-xs">
-              <BriefcaseBusiness size={15} aria-hidden="true" />
-              Professional journey
-            </span>
-
-            <h1 className="mt-5 font-heading text-4xl font-black leading-[1.05] sm:text-5xl lg:text-7xl">
+          <div className="mt-4 max-w-3xl">
+            <h1 className="font-heading text-4xl font-black leading-[1.05] sm:text-5xl lg:text-7xl">
               Experience shaped by{" "}
-              <span className="text-secondary-accent">building products.</span>
+              <span className="text-secondary-accent italic">building products.</span>
             </h1>
-
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
-              A closer look at my development experience, role progression,
-              responsibilities, and contributions to real software products
-              and university systems.
-            </p>
 
             <Link
               href="/projects"
-              className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-foreground transition-colors hover:text-secondary-accent"
+              className="mt-8 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-foreground transition-colors hover:text-secondary-accent"
             >
-              Explore project case studies
+              Explore projects
               <ArrowUpRight size={15} aria-hidden="true" />
             </Link>
           </div>

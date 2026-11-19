@@ -14,6 +14,7 @@ const maekandexProjects: ExperienceProject[] = [
     summary: "A product I contributed to as part of Maekandex Communications' active product portfolio.",
     contribution: "Frontend implementation, responsive interface work, API integration, debugging, and iterative product improvements as part of the engineering team.",
     technologies: ["React / Next.js", "REST APIs", "Responsive UI"],
+    topics: ["web-applications"],
     highlights: [
       "Translated product requirements and interface designs into responsive UI.",
       "Contributed reusable frontend components and connected interfaces to backend services.",
@@ -29,6 +30,7 @@ const maekandexProjects: ExperienceProject[] = [
     summary: "A product in the Maekandex Communications portfolio supported through ongoing frontend delivery.",
     contribution: "UI implementation, responsive layouts, API-connected functionality, maintenance, and product-quality improvements.",
     technologies: ["React / Next.js", "REST APIs", "Responsive UI"],
+    topics: ["web-applications"],
     highlights: [
       "Implemented and refined user-facing frontend features.",
       "Connected UI flows to backend services and handled frontend issues.",
@@ -44,6 +46,7 @@ const maekandexProjects: ExperienceProject[] = [
     summary: "A Maekandex product supported through frontend implementation and iterative product maintenance.",
     contribution: "Responsive UI delivery, reusable component development, integration work, and testing in collaboration with the product team.",
     technologies: ["React / Next.js", "REST APIs", "Responsive UI"],
+    topics: ["web-applications"],
     highlights: [
       "Built and maintained interface features under the team's delivery workflow.",
       "Used reusable components to support consistent UI patterns.",
@@ -59,6 +62,7 @@ const maekandexProjects: ExperienceProject[] = [
     summary: "A product in the Maekandex Communications portfolio with frontend work delivered by the product team.",
     contribution: "Mobile-oriented UI implementation, frontend integration, troubleshooting, and usability improvements across device sizes.",
     technologies: ["Frontend Development", "API Integration", "Responsive UI"],
+    topics: ["mobile-applications"],
     highlights: [
       "Implemented user-facing product features with a focus on device usability.",
       "Integrated frontend screens with backend functionality where required.",
@@ -74,6 +78,7 @@ const maekandexProjects: ExperienceProject[] = [
     summary: "A Nigerian job-search product built around job discovery and a streamlined search experience.",
     contribution: "Frontend delivery for a practical job-search experience, including responsive layouts, search and category-filter interfaces, and API-backed functionality.",
     technologies: ["Next.js", "Node.js", "PostgreSQL"],
+    topics: ["web-applications", "backend-apis"],
     highlights: [
       "Implemented keyword search and category-filtering experiences.",
       "Built responsive interfaces for browsing job opportunities.",
@@ -94,6 +99,7 @@ const personalProjects: ExperienceProject[] = [
     summary: "A desktop-first learning companion designed to help people understand learning material through guided explanations, questions, and practice.",
     contribution: "Product concept and MVP development focused on a reliable, learning-centred virtual teacher experience.",
     technologies: ["Electron", "React", "Vite", "Python Microservices"],
+    topics: ["developer-tools", "ai-machine-learning"],
     highlights: [
       "Designed around guided understanding rather than simply returning direct answers.",
       "Planned support for user-provided learning materials and interactive practice.",
@@ -110,6 +116,7 @@ const personalProjects: ExperienceProject[] = [
     summary: "A localised Hausa natural-language voice assistant designed around regional dialects.",
     contribution: "Built voice-oriented AI functionality and custom text-to-speech server infrastructure to stream generated speech.",
     technologies: ["Next.js", "Python", "Flask", "YARNGPT / LLM", "Railway"],
+    topics: ["web-applications", "ai-machine-learning", "backend-apis"],
     highlights: [
       "Selected as a Top 12 finalist from hundreds of entries at Codefest Nigeria Hackathon 2025.",
       "Engineered custom Python / Flask text-to-speech infrastructure for real-time audio streams.",
@@ -118,7 +125,7 @@ const personalProjects: ExperienceProject[] = [
     recognition: "Top 12 finalist · Codefest Nigeria Hackathon 2025",
     desktopScreenshot: "/images/work/gani-ai-desktop.png",
     mobileScreenshot: "/images/work/gani-ai-mobile.png",
-    featured: true,
+    // featured: true,
   },
   {
     id: "hostelhub",
@@ -128,6 +135,7 @@ const personalProjects: ExperienceProject[] = [
     summary: "A student accommodation and booking app for finding and reserving hostel spaces.",
     contribution: "Developed a full-stack mobile booking experience with search, filtering, and room availability status.",
     technologies: ["React Native", "Django", "Expo", "Python"],
+    topics: ["mobile-applications", "backend-apis"],
     highlights: [
       "Enabled students to search and filter accommodation options.",
       "Designed booking flows around room availability information.",
@@ -144,6 +152,7 @@ const personalProjects: ExperienceProject[] = [
     summary: "A multi-tenant event and ticketing ecosystem for organisers managing their own event experiences.",
     contribution: "Designed the multi-tenant foundation, dynamic administration rules, token-based authentication, data models, and REST API structure.",
     technologies: ["Next.js", "TypeScript", "Node.js", "MongoDB", "AWS"],
+    topics: ["web-applications", "backend-apis"],
     highlights: [
       "Architected data separation to support multiple event organisers.",
       "Designed scalable MongoDB schemas and REST APIs.",
@@ -160,6 +169,7 @@ const personalProjects: ExperienceProject[] = [
     summary: "A weather and environmental monitoring app that presents live atmospheric data and forecasts.",
     contribution: "Built the interface and integrated third-party APIs and browser capabilities for live data and location-based search.",
     technologies: ["React.js", "REST APIs", "Web APIs", "CSS3"],
+    topics: ["web-applications", "backend-apis"],
     highlights: [
       "Integrated third-party services to display current atmospheric conditions.",
       "Added location search and dynamic visual forecasts.",
@@ -176,6 +186,7 @@ const personalProjects: ExperienceProject[] = [
     summary: "A web platform paired with an automated university course scheduling system.",
     contribution: "Applied graph-theory and constraint-satisfaction approaches to reduce scheduling conflicts involving rooms and lecturers.",
     technologies: ["Next.js", "Node.js", "MongoDB", "Graph Theory"],
+    topics: ["web-applications", "backend-apis"],
     highlights: [
       "Developed a course scheduling approach based on graph-theory constraints.",
       "Targeted room and lecturer conflict prevention.",
@@ -191,7 +202,7 @@ export const experienceGroups: ExperienceGroup[] = [
     id: "maekandex",
     kind: "employment",
     organisation: "Maekandex Communications Limited",
-    role: "Frontend Developer · Junior Developer · Student Junior Developer",
+    role: "Mobile & Web Frontend Developer",
     dateRange: "2024 — Present",
     location: "Product engineering",
     label: "Professional Experience",
@@ -234,6 +245,36 @@ export const experienceGroups: ExperienceGroup[] = [
       },
     ],
     projects: maekandexProjects,
+    achievements: [
+      {
+        id: "role-progression",
+        title: "Frontend role progression",
+        caseReference: "MX-ROLE-2024-25",
+        dateRange: "2024 — Present",
+        summary: "Progressed from Student Junior Developer through Junior Developer to Frontend Developer while contributing to live product delivery.",
+        context: "A documented progression across the roles and responsibilities recorded in this portfolio's Maekandex experience timeline.",
+        contribution: "Built responsive interfaces, reusable React and Next.js components, API-connected UI flows, and supported testing, debugging, reviews, and releases with the product team.",
+        evidence: [
+          "Role timeline recorded in the Maekandex experience entry.",
+          "Responsibilities documented across frontend implementation, API integration, testing, and release support.",
+        ],
+        associatedProjectIds: ["letsmeet", "9jabuzz", "pluser-games", "litegre-prediction", "justjobng"],
+      },
+      {
+        id: "justjobng-product-delivery",
+        title: "JustJobNG frontend delivery",
+        caseReference: "MX-JJN-2025",
+        dateRange: "2025 — Present",
+        summary: "Contributed frontend work to a Nigerian job-search product focused on discovery and streamlined search.",
+        context: "JustJobNG is the featured Maekandex project documented in the existing project portfolio.",
+        contribution: "Delivered responsive layouts, search and category-filter interfaces, and API-backed frontend functionality as part of the product workflow.",
+        evidence: [
+          "Project record describes keyword search and category-filtering interfaces.",
+          "Project record documents responsive browsing experiences and application-data integration.",
+        ],
+        associatedProjectIds: ["justjobng"],
+      },
+    ],
   },
   {
     id: "ictrec",
@@ -251,6 +292,21 @@ export const experienceGroups: ExperienceGroup[] = [
       "Supported deployment updates and application maintenance under senior engineering supervision.",
       "Performed unit testing, system backups, and troubleshooting to improve application stability.",
       "Collaborated with senior engineers to maintain core university systems and resolve technical issues.",
+    ],
+    achievements: [
+      {
+        id: "campus-systems-support",
+        title: "Campus systems support",
+        caseReference: "ICTREC-SYS-2025",
+        dateRange: "Feb 2025 — Sep 2025",
+        summary: "Supported maintenance and troubleshooting of campus portals and university systems used by students and staff.",
+        context: "Volunteer software engineering internship at the ICT Resource Centre, FUNAAB.",
+        contribution: "Helped diagnose defects and database connectivity issues, supported updates and maintenance, performed testing and backups, and worked under senior engineering supervision.",
+        evidence: [
+          "Experience entry records campus portal maintenance and reliability work.",
+          "Experience entry records testing, system backups, deployment support, and troubleshooting.",
+        ],
+      },
     ],
   },
   {
@@ -273,3 +329,7 @@ export const allProjects: ExperienceProject[] = experienceGroups.flatMap(
 export const featuredProjects: ExperienceProject[] = allProjects.filter(
   (project) => project.featured,
 );
+
+export function getExperienceGroup(id: string) {
+  return experienceGroups.find((group) => group.id === id);
+}

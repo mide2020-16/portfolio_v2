@@ -13,15 +13,7 @@ export function FooterNavigation() {
           <li key={link.href}>
             <Link
               href={link.href}
-              className={[
-                "group inline-flex min-h-11 items-center gap-2",
-                "rounded-sm pr-2 text-sm font-semibold",
-                "text-foreground/75 transition-colors",
-                "hover:text-primary-accent",
-                "focus-visible:outline-none focus-visible:ring-2",
-                "focus-visible:ring-primary-accent",
-              ].join(" ")}
-            >
+              className="group inline-flex min-h-11 items-center gap-2 rounded-sm pr-2 text-sm font-semibold text-foreground/75 transition-colors hover:text-primary-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-accent">
               <span>{link.label}</span>
             </Link>
           </li>
