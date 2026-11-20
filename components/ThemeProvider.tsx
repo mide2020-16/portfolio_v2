@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/set-state-in-effect */
+
 "use client";
 
 import {
@@ -35,71 +36,101 @@ function resolveTheme(theme: Theme): ResolvedTheme {
 
 function applyTheme(resolved: ResolvedTheme) {
   const root = document.documentElement;
+
   root.classList.remove("light", "dark");
   root.classList.add(resolved);
   root.style.colorScheme = resolved;
 }
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
+function getStoredTheme(): Theme {
+  try {
+    const value = localStorage.getItem(STORAGE_KEY);
+
+    if (value === "light" || value === "dark" || value === "system") {
+      return value;
+    }
+  } catch {
+    // Ignore unavailable localStorage.
+  }
+
+  return "system";
+}
+
+export function ThemeProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [theme, setThemeState] = useState<Theme>("system");
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("dark");
+  const [resolvedTheme, setResolvedTheme] =
+    useState<ResolvedTheme>("light");
 
   const setTheme = useCallback((next: Theme) => {
+    const resolved = resolveTheme(next);
+
     setThemeState(next);
+    setResolvedTheme(resolved);
+
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
-      /* ignore quota / private mode */
+      // Ignore unavailable localStorage.
     }
-    const resolved = resolveTheme(next);
-    setResolvedTheme(resolved);
+
     applyTheme(resolved);
   }, []);
 
   useEffect(() => {
-    let stored: Theme = "system";
-    try {
-      const value = localStorage.getItem(STORAGE_KEY);
-      if (value === "light" || value === "dark" || value === "system") {
-        stored = value;
-      }
-    } catch {
-      /* ignore */
-    }
-
+    const stored = getStoredTheme();
     const resolved = resolveTheme(stored);
+
     setThemeState(stored);
     setResolvedTheme(resolved);
+
     applyTheme(resolved);
   }, []);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-color-scheme: dark)");
+
     const onChange = () => {
       if (theme !== "system") return;
+
       const resolved = getSystemTheme();
+
       setResolvedTheme(resolved);
       applyTheme(resolved);
     };
 
     media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
+
+    return () => {
+      media.removeEventListener("change", onChange);
+    };
   }, [theme]);
 
   const value = useMemo(
-    () => ({ theme, resolvedTheme, setTheme }),
+    () => ({
+      theme,
+      resolvedTheme,
+      setTheme,
+    }),
     [theme, resolvedTheme, setTheme],
   );
 
   return (
-    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>
+      {children}
+    </ThemeContext.Provider>
   );
 }
 
 export function useTheme() {
   const context = useContext(ThemeContext);
+
   if (!context) {
     throw new Error("useTheme must be used within ThemeProvider");
   }
+
   return context;
 }

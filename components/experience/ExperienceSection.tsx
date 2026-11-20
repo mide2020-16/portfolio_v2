@@ -25,7 +25,7 @@ export function ExperienceSection({
     <section
       id={view === "home" ? "experience" : "work-experience"}
       aria-label="Ayomide. Experience"
-      className="relative overflow-hidden border-y-2 border-border bg-background py-16 sm:py-20 lg:py-24"
+      className="relative overflow-hidden border-y-2 border-border bg-highlight/80 py-16 sm:py-20 lg:py-24"
     >
       <span
         aria-hidden="true"

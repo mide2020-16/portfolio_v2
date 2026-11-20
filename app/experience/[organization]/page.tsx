@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  BriefcaseBusiness,
-  CheckCircle2,
   ChevronLeft,
 } from "lucide-react";
 import { notFound } from "next/navigation";

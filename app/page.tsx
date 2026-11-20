@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <Hero />
-      <AchievementBanner />
       <ExperienceSection />
       <ProjectsSection />
+      <AchievementBanner />
       <SkillsGrid />
       <EducationSection />
       <ContactSection />

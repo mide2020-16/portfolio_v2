@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 
@@ -29,7 +30,6 @@ export const metadata: Metadata = {
   },
 
   description: seo.description,
-
   keywords: seo.keywords,
 
   authors: [
@@ -43,7 +43,6 @@ export const metadata: Metadata = {
   publisher: personalInfo.name,
 
   applicationName: `${personalInfo.name} Portfolio`,
-
   category: "technology",
 
   alternates: {
@@ -51,8 +50,7 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    google:
-      "SREPRDvh_kseUaS8giDwYMK5_vPcG6F30vbgtyeEiVk",
+    google: "SREPRDvh_kseUaS8giDwYMK5_vPcG6F30vbgtyeEiVk",
   },
 
   openGraph: {
@@ -153,6 +151,36 @@ const jsonLd = {
   },
 };
 
+const themeInitScript = `
+  (function () {
+    try {
+      var stored = localStorage.getItem("theme");
+      var theme =
+        stored === "light" || stored === "dark" || stored === "system"
+          ? stored
+          : "system";
+
+      var resolved =
+        theme === "system"
+          ? (
+              window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light"
+            )
+          : theme;
+
+      var root = document.documentElement;
+
+      root.classList.remove("light", "dark");
+      root.classList.add(resolved);
+      root.style.colorScheme = resolved;
+    } catch (error) {
+      document.documentElement.classList.add("light");
+      document.documentElement.style.colorScheme = "light";
+    }
+  })();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -161,15 +189,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${dmSans.variable} dark h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${dmSans.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full transition-colors duration-300">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: themeInitScript,
+          }}
+        />
+      </head>
+
+      <body className="min-h-full overflow-x-hidden">
         <ThemeProvider>
           <HireMeProvider>
-            <AppShell>
-              {children}
-            </AppShell>
+            <AppShell>{children}</AppShell>
           </HireMeProvider>
         </ThemeProvider>
 
