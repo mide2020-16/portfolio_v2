@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { seo } from "@/lib/data/portfolio";
+import { seo } from "@/data/portfolio";
 
 export default function robots(): MetadataRoute.Robots {
   return {

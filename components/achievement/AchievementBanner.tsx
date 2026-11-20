@@ -2,7 +2,7 @@
 
 import { AnimatePresence, useReducedMotion } from "framer-motion";
 import { useCallback, useRef, useState } from "react";
-import { achievements } from "@/lib/data/portfolio";
+import { achievements } from "@/data/portfolio";
 import { CertificateModal } from "./CertificateModal";
 import { AchievementCard } from "./AchievementCard";
 

@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import type { ExperienceAchievement } from "./experience.types";
+import type { ExperienceAchievement } from "../../types/experience.types";
 
 interface ExperienceAchievementsListProps {
   groupId: string;

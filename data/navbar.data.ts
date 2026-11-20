@@ -30,8 +30,8 @@ export function getNavHref(slug: string, pathname: string): string {
   const isHome = pathname === "/";
 
   if (isHome || slug === "skiils" || slug === "contact") {
-    return `#${slug}`;
+    return `/#${slug}`;
   }
 
-  return slug === "skills" ? `/#${slug}` : slug === "top" ? "/" : `/${slug}`;
+  return slug === "top" ? "/" : `/${slug}`;
 }

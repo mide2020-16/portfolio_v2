@@ -6,8 +6,8 @@ import type { PointerEvent } from "react";
 import { Lottie } from "lottie-react";
 import type { LottieHandle } from "lottie-react";
 
-import type { SocialAnimationKey } from "./socialLottie.data";
-import { socialLottieAnimations } from "./socialLottie.data";
+import type { SocialAnimationKey } from "../../data/socialLottie.data";
+import { socialLottieAnimations } from "../../data/socialLottie.data";
 
 interface SocialLottieIconProps {
   socialKey: SocialAnimationKey;

@@ -1,7 +1,7 @@
 import { Lottie } from "lottie-react";
 import trophyAnimation from "@/assets/lottie/trophy.json";
 import { Award, ExternalLink } from "lucide-react";
-import { achievements } from "@/lib/data/portfolio";
+import { achievements } from "@/data/portfolio";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ExperiencePage() {
   return (
     <main className="min-h-screen bg-background text-foreground mt-12">
-      <section className="bg-highlight/70">
+      <section className="bg-highlight/50">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-8 sm:py-14 lg:py-18">
           <Link
             href="/"

@@ -1,4 +1,4 @@
-import type { ExperienceGroup, ExperienceProject } from "./experience.types";
+import type { ExperienceGroup, ExperienceProject } from "../types/experience.types";
 
 const productScreens = (slug: string) => ({
   desktopScreenshot: `/images/work/${slug}-desktop.png`,
@@ -23,8 +23,8 @@ const maekandexProjects: ExperienceProject[] = [
     ...productScreens("letsmeet"),
   },
   {
-    id: "9jabuzz",
-    name: "9jaBuzz",
+    id: "trios",
+    name: "Trios",
     category: "work-product",
     platform: "web",
     summary: "A product in the Maekandex Communications portfolio supported through ongoing frontend delivery.",
@@ -36,13 +36,13 @@ const maekandexProjects: ExperienceProject[] = [
       "Connected UI flows to backend services and handled frontend issues.",
       "Helped maintain usability across different screen sizes.",
     ],
-    ...productScreens("9jabuzz"),
+    ...productScreens("trios"),
   },
   {
     id: "pluser-games",
     name: "Pluser Games",
     category: "work-product",
-    platform: "web",
+    platform: "mobile",
     summary: "A Maekandex product supported through frontend implementation and iterative product maintenance.",
     contribution: "Responsive UI delivery, reusable component development, integration work, and testing in collaboration with the product team.",
     technologies: ["React / Next.js", "REST APIs", "Responsive UI"],

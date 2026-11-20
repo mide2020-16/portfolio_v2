@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS, getNavHref } from "./navbar.data";
+import { NAV_LINKS, getNavHref } from "../../data/navbar.data";
 
 export function DesktopNav() {
   const pathname = usePathname();

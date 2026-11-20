@@ -6,7 +6,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { AppShell } from "@/components/AppShell";
 import { HireMeProvider } from "@/components/hire/HireMeProvider";
-import { seo, personalInfo } from "@/lib/data/portfolio";
+import { seo, personalInfo } from "@/data/portfolio";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",

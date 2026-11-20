@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MOBILE_NAV_ITEMS, getNavHref } from "./navbar.data";
+import { MOBILE_NAV_ITEMS, getNavHref } from "../../data/navbar.data";
 import { ArrowUpRight } from "lucide-react";
 import { useHireMe } from "../hire/HireMeProvider";
 

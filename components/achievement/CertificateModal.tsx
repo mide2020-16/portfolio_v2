@@ -13,7 +13,7 @@ import {
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-import { achievements } from "@/lib/data/portfolio";
+import { achievements } from "@/data/portfolio";
 import { backdropVariants, modalVariants } from "./achievementAnimation";
 
 type Achievement = (typeof achievements)[number];

@@ -2,10 +2,10 @@
 
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
-import { personalInfo } from "@/lib/data/portfolio";
+import { personalInfo } from "@/data/portfolio";
 import { InteractiveHeroItem } from "./InteractiveHeroItem";
 import { HeroSocialLinks } from "./HeroSocialLinks";
-import { heroItems } from "./hero.data";
+import { heroItems } from "../../data/hero.data";
 
 interface HeroContentProps {
   activeIndex: number | null;

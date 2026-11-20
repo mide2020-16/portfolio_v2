@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, Award, ExternalLink } from "lucide-react";
-import { achievements } from "@/lib/data/portfolio";
+import { achievements } from "@/data/portfolio";
 import { notFound } from "next/navigation";
 
 interface Props { params: Promise<{ slug: string }> }

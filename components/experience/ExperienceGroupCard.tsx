@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import type { ExperienceGroup, ExperienceView } from "./experience.types";
+import type { ExperienceGroup, ExperienceView } from "../../types/experience.types";
 import { EXPERIENCE_EASE } from "./experience.motion";
 import { ExperienceGroupHeader } from "./ExperienceGroupHeader";
 // import { ExperienceAchievementsList } from "./ExperienceAchievementsList";

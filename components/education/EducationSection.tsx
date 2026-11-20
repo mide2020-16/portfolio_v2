@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useReducedMotion } from "framer-motion";
-import { education } from "./education.data";
+import { education } from "../../data/education.data";
 import { EducationCard } from "./EducationCard";
 import { SectionLabel } from "../ui/SectionLabel";
 

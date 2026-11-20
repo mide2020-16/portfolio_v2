@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { SkillCategory } from "@/lib/data/portfolio";
+import { SkillCategory } from "@/data/portfolio";
 import { SkillMarquee } from "./SkillMarquee";
 
 const categoryVariants = {

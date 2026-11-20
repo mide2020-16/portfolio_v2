@@ -5,8 +5,8 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { SectionLabel } from "../ui/SectionLabel";
 import { ExperienceGroupCard } from "./ExperienceGroupCard";
-import { experienceGroups } from "./experience.data";
-import type { ExperienceView } from "./experience.types";
+import { experienceGroups } from "../../data/experience.data";
+import type { ExperienceView } from "../../types/experience.types";
 
 export function ExperienceSection({
   view = "home",

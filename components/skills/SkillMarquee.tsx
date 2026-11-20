@@ -1,4 +1,4 @@
-import { SkillCategory } from "@/lib/data/portfolio";
+import { SkillCategory } from "@/data/portfolio";
 import { SkillItem } from "./SkillItem";
 
 type SkillMarqueeProps = {

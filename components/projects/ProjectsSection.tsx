@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
-import { allProjects } from "@/components/experience/experience.data";
+import { allProjects } from "@/data/experience.data";
 import { ProjectShowcaseCard } from "./ProjectShowcaseCard";
 import { SectionLabel } from "../ui/SectionLabel";
 

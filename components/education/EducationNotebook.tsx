@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import type { EducationCardSharedProps } from "./education.types";
+import type { EducationCardSharedProps } from "../../types/education.types";
 
 interface EducationNotebookProps extends EducationCardSharedProps {
   isExpanded: boolean;

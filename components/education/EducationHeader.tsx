@@ -3,7 +3,7 @@
 import { GraduationIcon } from "./GraduationIcon";
 import { CertificateLink } from "./CertificateLink";
 import { EducationChevron } from "./EducationSvg";
-import type { EducationCardSharedProps } from "./education.types";
+import type { EducationCardSharedProps } from "../../types/education.types";
 
 interface EducationHeaderProps extends EducationCardSharedProps {
   index: number;

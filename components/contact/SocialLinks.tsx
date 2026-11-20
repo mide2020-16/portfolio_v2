@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-import { personalInfo } from "@/lib/data/portfolio";
+import { personalInfo } from "@/data/portfolio";
 import { socialIcons } from "../socials/socialLinkSvg";
 
 export function SocialLinks() {

@@ -3,8 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
-import type { ExperienceProject } from "@/components/experience/experience.types";
-import { ProjectDeviceStage } from "@/components/experience/DeviceMockups";
+import type { ExperienceProject } from "@/types/experience.types";
+import { ProjectDeviceStage } from "@/components/ui/DeviceMockups";
 
 interface ProjectShowcaseCardProps {
   project: ExperienceProject;

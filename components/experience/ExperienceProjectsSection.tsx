@@ -2,7 +2,7 @@ import type {
   ExperienceGroupKind,
   ExperienceProject,
   ExperienceView,
-} from "./experience.types";
+} from "../../types/experience.types";
 import { ExperienceProjectCard } from "./ExperienceProjectCard";
 
 interface ExperienceProjectsSectionProps {

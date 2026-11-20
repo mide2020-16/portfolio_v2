@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { EducationHeader } from "./EducationHeader";
 import { EducationNotebook } from "./EducationNotebook";
-import type { EducationCardSharedProps } from "./education.types";
+import type { EducationCardSharedProps } from "../../types/education.types";
 
 interface EducationCardProps extends EducationCardSharedProps {
   index: number;

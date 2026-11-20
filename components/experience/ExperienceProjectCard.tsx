@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Lottie } from "lottie-react";
 import { ChevronDown, ArrowUpRight } from "lucide-react";
 
-import type { ExperienceProject } from "./experience.types";
+import type { ExperienceProject } from "../../types/experience.types";
 import { ProjectNotebook } from "./ProjectNotebook";
 import projectAnimation from "@/assets/lottie/project.json";
 

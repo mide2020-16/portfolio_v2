@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { CSSProperties, useState } from "react";
 import { motion } from "framer-motion";
-import { skillIcons } from "./skills.data";
+import { skillIcons } from "../../data/skills.data";
 
 type SkillItemProps = {
   skill: string;

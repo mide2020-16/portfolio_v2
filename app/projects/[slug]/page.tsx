@@ -8,9 +8,10 @@ import {
   Code2,
   ExternalLink,
   Layers3,
+  Dot,
 } from "lucide-react";
-import { allProjects } from "@/components/experience/experience.data";
-import { ProjectDeviceStage } from "@/components/experience/DeviceMockups";
+import { allProjects } from "@/data/experience.data";
+import { ProjectDeviceStage } from "@/components/ui/DeviceMockups";
 import { ProjectShowcaseCard } from "@/components/projects/ProjectShowcaseCard";
 
 interface ProjectPageProps {
@@ -30,11 +31,11 @@ export async function generateMetadata({
   const project = allProjects.find((item) => item.id === slug);
 
   if (!project) {
-    return { title: "Project not found | Ayomide" };
+    return { title: "Project not found" };
   }
 
   return {
-    title: `${project.name} | Projects | Ayomide`,
+    title: `${project.name} | Projects`,
     description: project.summary,
     alternates: { canonical: `/projects/${project.id}` },
     openGraph: {
@@ -70,7 +71,7 @@ export default async function ProjectDetailPage({
   }[project.platform];
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground mt-12">
       <section className="border-b-2 border-border bg-highlight/40">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-12">
           <Link
@@ -136,11 +137,8 @@ export default async function ProjectDetailPage({
 
         <div className="mt-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
           <article className="border-2 border-border bg-card p-5 sm:p-7">
-            <p className="text-[10px] font-black uppercase tracking-[0.18em] text-secondary-accent">
-              The project
-            </p>
             <h2 className="mt-3 font-heading text-2xl font-black sm:text-3xl">
-              Overview & contribution
+              Overview
             </h2>
             <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">
               {project.summary}
@@ -172,9 +170,6 @@ export default async function ProjectDetailPage({
                 <Code2 size={18} aria-hidden="true" />
               </span>
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.16em] text-muted-foreground">
-                  Technology
-                </p>
                 <h2 className="font-heading text-xl font-black">
                   Tools & stack
                 </h2>
@@ -204,9 +199,9 @@ export default async function ProjectDetailPage({
                   key={`${project.id}-highlight-${index}`}
                   className="flex items-start gap-3 text-sm leading-7 text-muted-foreground"
                 >
-                  <CheckCircle2
-                    size={16}
-                    className="mt-1 shrink-0 text-secondary-accent"
+                  <Dot
+                    size={30}
+                    className="text-secondary-accent"
                     aria-hidden="true"
                   />
                   <span>{highlight}</span>

@@ -5,7 +5,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   BriefcaseBusiness,
-  CalendarCheck,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -14,6 +13,8 @@ import {
   X,
 } from "lucide-react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
+import { Lottie } from "lottie-react";
+import projectAnimation from "@/assets/lottie/meeting.json";
 
 type Intent = "client" | "recruiter";
 type Step = "choose" | "book" | "success";
@@ -37,6 +38,22 @@ const options = [
     icon: BriefcaseBusiness,
   },
 ];
+
+function getCalendlyThemeColors(isDark: boolean) {
+  if (isDark) {
+    return {
+      backgroundColor: "121413",
+      textColor: "f3f4f2",
+      primaryColor: "84b82b",
+    };
+  }
+
+  return {
+    backgroundColor: "ffffff",
+    textColor: "101211",
+    primaryColor: "6b9a1f",
+  };
+}
 
 function getCalendlyUrl(intent: Intent | null): string | null {
   const configuredUrl =
@@ -68,6 +85,8 @@ function getCalendlyUrl(intent: Intent | null): string | null {
 export function HireMeModal({ open, onClose }: Props) {
   const [intent, setIntent] = useState<Intent | null>(null);
   const [step, setStep] = useState<Step>("choose");
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isCalendlyLoading, setIsCalendlyLoading] = useState(true);
 
   const dialogRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -75,15 +94,67 @@ export function HireMeModal({ open, onClose }: Props) {
 
   const reduceMotion = useReducedMotion();
   const calendlyUrl = getCalendlyUrl(intent);
+  const calendlyColors = getCalendlyThemeColors(isDarkTheme);
+
+  useEffect(() => {
+    const detectDark = () => {
+      const root = document.documentElement;
+      return (
+        root.classList.contains("dark") ||
+        root.getAttribute("data-theme") === "dark"
+      );
+    };
+
+    setIsDarkTheme(detectDark());
+
+    const observer = new MutationObserver(() => {
+      setIsDarkTheme(detectDark());
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class", "data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (step !== "book" || !calendlyUrl) return;
+
+    setIsCalendlyLoading(true);
+
+    const handleMessage = (event: MessageEvent) => {
+      if (
+        typeof event.data === "object" &&
+        event.data !== null &&
+        typeof event.data.event === "string" &&
+        event.data.event.startsWith("calendly.")
+      ) {
+        setIsCalendlyLoading(false);
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    const fallbackTimer = window.setTimeout(() => {
+      setIsCalendlyLoading(false);
+    }, 2500);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+      window.clearTimeout(fallbackTimer);
+    };
+  }, [step, calendlyUrl]);
 
   const transition = reduceMotion
     ? { duration: 0 }
     : {
-        type: "spring" as const,
-        stiffness: 300,
-        damping: 28,
-        mass: 0.8,
-      };
+      type: "spring" as const,
+      stiffness: 300,
+      damping: 28,
+      mass: 0.8,
+    };
 
   const handleClose = useCallback(() => {
     onClose();
@@ -99,6 +170,7 @@ export function HireMeModal({ open, onClose }: Props) {
     if (!open) {
       setIntent(null);
       setStep("choose");
+      setIsCalendlyLoading(true);
       return;
     }
 
@@ -170,16 +242,13 @@ export function HireMeModal({ open, onClose }: Props) {
   const handlePreferEmail = () => {
     const selectedIntent = intent || "client";
 
-    // Update browser URL query params without reloading
     const params = new URLSearchParams(window.location.search);
     params.set("intent", selectedIntent);
     const newRelativePathQuery = `${window.location.pathname}?${params.toString()}#contact`;
     window.history.pushState(null, "", newRelativePathQuery);
 
-    // Close the modal
     handleClose();
 
-    // Scroll smoothly to contact section and let its mount listener handle pre-filling
     const contactElement = document.getElementById("contact");
     if (contactElement) {
       contactElement.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -199,29 +268,27 @@ export function HireMeModal({ open, onClose }: Props) {
       opacity: 0,
       x: "100%",
     },
-
     visible: {
       opacity: 1,
       x: 0,
       transition: reduceMotion
         ? { duration: 0 }
         : {
-            type: "spring" as const,
-            stiffness: 320,
-            damping: 32,
-            mass: 0.85,
-          },
+          type: "spring" as const,
+          stiffness: 320,
+          damping: 32,
+          mass: 0.85,
+        },
     },
-
     exit: {
       opacity: 0,
       x: "100%",
       transition: reduceMotion
         ? { duration: 0 }
         : {
-            duration: 0.22,
-            ease: "easeIn" as const,
-          },
+          duration: 0.22,
+          ease: "easeIn" as const,
+        },
     },
   };
 
@@ -255,7 +322,7 @@ export function HireMeModal({ open, onClose }: Props) {
             aria-labelledby="hire-me-title"
             className="absolute right-0 top-0 flex h-dvh w-full flex-col overflow-hidden border-l-2 border-border bg-background text-foreground shadow-[-8px_0px_0px_0px_var(--highlight)] outline-none sm:w-[60vw] sm:max-w-4xl sm:shadow-[-12px_0px_0px_0px_var(--highlight)]"
           >
-            {/* Modal header — matching the achievement modal */}
+            {/* Modal header */}
             <header className="flex shrink-0 items-center justify-between gap-4 border-b-2 border-border bg-background px-4 py-4 text-foreground sm:px-6">
               <div className="flex min-w-0 items-center gap-3">
                 <div className="min-w-0">
@@ -354,19 +421,17 @@ export function HireMeModal({ open, onClose }: Props) {
                               reduceMotion ? undefined : { x: -2, y: -2 }
                             }
                             whileTap={reduceMotion ? undefined : { x: 2, y: 2 }}
-                            className={`group flex min-h-44 flex-col border-2 p-5 text-left shadow-[4px_4px_0px_0px_var(--border)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent focus-visible:ring-offset-2 ${
-                              selected
+                            className={`group flex min-h-44 flex-col border-2 p-5 text-left shadow-[4px_4px_0px_0px_var(--border)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent focus-visible:ring-offset-2 ${selected
                                 ? "border-foreground bg-background"
                                 : "border-border bg-background hover:border-foreground"
-                            }`}
+                              }`}
                           >
                             <div className="flex w-full items-center justify-between">
                               <div
-                                className={`flex h-11 w-11 items-center justify-center border-2 transition-colors ${
-                                  selected
+                                className={`flex h-11 w-11 items-center justify-center border-2 transition-colors ${selected
                                     ? "border-foreground bg-foreground text-background"
                                     : "border-border bg-background text-foreground group-hover:border-foreground"
-                                }`}
+                                  }`}
                               >
                                 <Icon size={22} aria-hidden="true" />
                               </div>
@@ -501,7 +566,42 @@ export function HireMeModal({ open, onClose }: Props) {
 
                   {/* Calendly */}
                   {calendlyUrl ? (
-                    <div className="min-h-0 flex-1 overflow-hidden bg-white">
+                    <div
+                      className="relative min-h-0 flex-1 overflow-hidden"
+                      style={{
+                        backgroundColor: `#${calendlyColors.backgroundColor}`,
+                      }}
+                    >
+                      {isCalendlyLoading && (
+                        <div
+                          role="status"
+                          aria-live="polite"
+                          className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-background/90 text-foreground"
+                        >
+                          <motion.span
+                            aria-hidden="true"
+                            animate={
+                              reduceMotion ? undefined : { rotate: 360 }
+                            }
+                            transition={
+                              reduceMotion
+                                ? undefined
+                                : {
+                                  repeat: Infinity,
+                                  duration: 2.6,
+                                  ease: "linear",
+                                }
+                            }
+                            className="inline-block text-4xl leading-none select-none"
+                          >
+                            ⏳
+                          </motion.span>
+                          <span className="text-xs font-black uppercase tracking-widest text-foreground/60">
+                            Loading calendar...
+                          </span>
+                        </div>
+                      )}
+
                       <InlineWidget
                         key={`${intent}-${calendlyUrl}`}
                         url={calendlyUrl}
@@ -511,9 +611,9 @@ export function HireMeModal({ open, onClose }: Props) {
                           width: "100%",
                         }}
                         pageSettings={{
-                          backgroundColor: "ffffff",
-                          textColor: "101211",
-                          primaryColor: "6b9a1f",
+                          backgroundColor: calendlyColors.backgroundColor,
+                          textColor: calendlyColors.textColor,
+                          primaryColor: calendlyColors.primaryColor,
                           hideEventTypeDetails: false,
                           hideLandingPageDetails: false,
                         }}
@@ -572,14 +672,17 @@ export function HireMeModal({ open, onClose }: Props) {
                   className="overflow-y-auto p-7 text-center sm:p-10"
                 >
                   <motion.div
-                    initial={
-                      reduceMotion ? { scale: 1 } : { scale: 0.8, rotate: -8 }
-                    }
+                    initial={reduceMotion ? { scale: 1 } : { scale: 0.8, rotate: -8 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={transition}
-                    className="mx-auto flex h-16 w-16 items-center justify-center border-2 border-border bg-highlight text-secondary-accent shadow-[4px_4px_0px_0px_var(--border)]"
+                    className="mx-auto flex h-20 w-20 items-center justify-center overflow-hidden border-2 border-border bg-highlight text-secondary-accent shadow-[4px_4px_0px_0px_var(--border)]"
                   >
-                    <CalendarCheck size={30} aria-hidden="true" />
+                    <Lottie
+                      src={projectAnimation}
+                      autoplay
+                      loop
+                      className="size-full"
+                    />
                   </motion.div>
 
                   <h3 className="mt-3 text-2xl font-black tracking-tight sm:text-3xl">
@@ -598,7 +701,6 @@ export function HireMeModal({ open, onClose }: Props) {
                     className="mt-8 inline-flex min-h-12 items-center justify-center gap-3 border-2 border-border bg-foreground px-6 py-3 text-xs font-black uppercase tracking-widest text-background shadow-[4px_4px_0px_0px_var(--highlight)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-secondary-accent hover:text-foreground hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent"
                   >
                     Done
-                    <Check size={17} aria-hidden="true" />
                   </button>
                 </motion.div>
               )}

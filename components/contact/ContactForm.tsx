@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertCircle } from "lucide-react";
 
-import { personalInfo } from "@/lib/data/portfolio";
+import { personalInfo } from "@/data/portfolio";
 import { ContactSuccess } from "./ContactSuccess";
 import { MessageField } from "./MessageField";
 

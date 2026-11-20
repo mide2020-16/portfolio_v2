@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { SectionLabel } from "./ui/SectionLabel";
-import { skillCategories} from "@/lib/data/portfolio";
+import { skillCategories} from "@/data/portfolio";
 import { SkillCategoryRow } from "./skills/SkillCategory";
 
 export function SkillsGrid() {

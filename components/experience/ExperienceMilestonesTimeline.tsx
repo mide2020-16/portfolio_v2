@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import type { CareerMilestone } from "./experience.types";
+import type { CareerMilestone } from "../../types/experience.types";
 
 interface ExperienceMilestonesTimelineProps {
   milestones: CareerMilestone[];

@@ -11,7 +11,7 @@ import {
   INITIAL_DECODE_DELAY_MS,
   MATRIX_CHARS,
   SCRAMBLE_INTERVAL_MS,
-} from "./navbar.data";
+} from "../../data/navbar.data";
 
 import { NavbarFloatingAvatar } from "./NavbarFloatingAvatar";
 import { NavbarHeader } from "./NavbarHeader";

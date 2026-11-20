@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { socialLinks } from "./social.data";
+import { socialLinks } from "../../data/social.data";
 import { SocialLottieIcon } from "./SocialLottieIcon";
-import type { SocialAnimationKey } from "./socialLottie.data";
+import type { SocialAnimationKey } from "../../data/socialLottie.data";
 
 interface SocialLinkProps {
   social: (typeof socialLinks)[number];

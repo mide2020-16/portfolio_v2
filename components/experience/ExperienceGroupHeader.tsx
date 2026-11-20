@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
-import type { ExperienceGroup, ExperienceProject } from "./experience.types";
+import type { ExperienceGroup, ExperienceProject } from "../../types/experience.types";
 import { ExperienceLottieIcon } from "./ExperienceLottieIcon";
 import { EXPERIENCE_EASE } from "./experience.motion";
 

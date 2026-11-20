@@ -8,7 +8,7 @@ import workAnimation from "@/assets/lottie/experience/work.json";
 import internAnimation from "@/assets/lottie/experience/intern.json";
 import personalAnimation from "@/assets/lottie/experience/personal.json";
 
-import type { ExperienceGroup } from "./experience.types";
+import type { ExperienceGroup } from "../../types/experience.types";
 
 interface ExperienceLottieIconProps {
   animation: ExperienceGroup["animation"];

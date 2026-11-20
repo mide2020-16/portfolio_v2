@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { socialLinks } from "../socials/social.data";
+import { socialLinks } from "../../data/social.data";
 import { SocialLink } from "../socials/socialLink";
 
 interface HeroSocialLinksProps {

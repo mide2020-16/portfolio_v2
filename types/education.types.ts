@@ -1,4 +1,4 @@
-import { education } from "./education.data";
+import { education } from "../data/education.data";
 
 export type EducationItem = (typeof education)[number] & {
   certificateUrl?: string;

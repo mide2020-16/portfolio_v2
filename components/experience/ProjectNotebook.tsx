@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import type { ExperienceProject } from "./experience.types";
-import { ProjectDeviceStage } from "./DeviceMockups";
+import type { ExperienceProject } from "../../types/experience.types";
+import { ProjectDeviceStage } from "../ui/DeviceMockups";
 
 export function ProjectNotebook({
   project,

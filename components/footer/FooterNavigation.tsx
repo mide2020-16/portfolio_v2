@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { footerLinks } from "./footer.data";
+import { footerLinks } from "../../data/footer.data";
 
 export function FooterNavigation() {
   return (

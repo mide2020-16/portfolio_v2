@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
-import { ctaPhrases, phraseAnimations } from "./contact.data";
+import { ctaPhrases, phraseAnimations } from "../../data/contact.data";
 
 export function ContactCTA() {
   const shouldReduceMotion = useReducedMotion();

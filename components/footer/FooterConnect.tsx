@@ -1,7 +1,7 @@
 "use client";
 
 import { useReducedMotion } from "framer-motion";
-import { socialLinks } from "../socials/social.data";
+import { socialLinks } from "../../data/social.data";
 import { SocialLink } from "../socials/socialLink";
 
 export function FooterConnect() {
