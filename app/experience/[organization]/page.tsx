@@ -56,7 +56,7 @@ export default async function OrganizationExperiencePage({
       {/* Subtle Background Accent */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-0 -z-0 h-80 w-80 rounded-full bg-secondary-accent/5 blur-3xl"
+        className="pointer-events-none absolute right-0 top-0 z-0 h-80 w-80 rounded-full bg-secondary-accent/5 blur-3xl"
       />
 
       {/* Organisation Header */}
@@ -75,7 +75,7 @@ export default async function OrganizationExperiencePage({
 
           <div className="mt-12 max-w-4xl sm:mt-16">
 
-            <h1 className="max-w-4xl break-words font-heading text-4xl font-black leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="max-w-4xl wrap-break-word font-heading text-4xl font-black leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
               {group.organisation}
               <span className="text-secondary-accent">.</span>
             </h1>

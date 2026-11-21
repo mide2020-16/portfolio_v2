@@ -46,7 +46,7 @@ export function ContactCTA() {
       className="flex flex-col justify-between border-2 border-border bg-primary-accent/90 p-8 shadow-[8px_8px_0px_0px_var(--foreground)]"
     >
       <div>
-        <div className="relative mb-3 flex min-h-[5.5rem] items-center">
+        <div className="relative mb-3 flex min-h-22 items-center">
           <AnimatePresence mode="wait" initial={false}>
             <motion.h3
               key={phraseIndex}

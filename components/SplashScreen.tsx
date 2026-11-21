@@ -127,7 +127,7 @@ export function SplashScreen({
       role="status"
       aria-label="Loading portfolio"
       aria-live="polite"
-      className={`splash-screen ${glitchState} fixed inset-0 z-[9999] isolate flex flex-col justify-between overflow-hidden bg-[#f7f6f0] p-[clamp(24px,5vw,64px)] font-sans text-[#171813] select-none transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] dark:bg-[#090a09] dark:text-[#f2f1eb] motion-reduce:transition-none ${
+      className={`splash-screen ${glitchState} fixed inset-0 z-9999 isolate flex flex-col justify-between overflow-hidden bg-[#f7f6f0] p-[clamp(24px,5vw,64px)] font-sans text-[#171813] select-none transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] dark:bg-[#090a09] dark:text-[#f2f1eb] motion-reduce:transition-none ${
         isExiting
           ? "-translate-y-full opacity-0 pointer-events-none"
           : "translate-y-0 opacity-100"
@@ -135,12 +135,12 @@ export function SplashScreen({
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-[#f7f6f0] via-[#f7f6f0]/65 to-[#f7f6f0]/80 dark:from-[#090a09] dark:via-[#090a09]/70 dark:to-[#090a09]/80"
+        className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-[#f7f6f0] via-[#f7f6f0]/65 to-[#f7f6f0]/80 dark:from-[#090a09] dark:via-[#090a09]/70 dark:to-[#090a09]/80"
       />
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-[9] bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(23,24,19,0.05)_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.48)_100%)]"
+        className="pointer-events-none absolute inset-0 z-[-9] bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(23,24,19,0.05)_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.48)_100%)]"
       />
 
       {/* Central typography */}
@@ -168,15 +168,15 @@ export function SplashScreen({
       </main>
 
       {/* Progress */}
-      <footer className="splash-fade-in relative z-10 ml-auto w-full max-w-[420px]">
-        <div className="h-[2px] overflow-hidden bg-black/15 dark:bg-white/[0.18]">
+      <footer className="splash-fade-in relative z-10 ml-auto w-full max-w-105">
+        <div className="h-0.5 overflow-hidden bg-black/15 dark:bg-white/18">
           <div
-            className="h-full bg-[#536d00] transition-[width] duration-[80ms] ease-linear dark:bg-[#d7fa54]"
+            className="h-full bg-[#536d00] transition-[width] duration-80 ease-linear dark:bg-[#d7fa54]"
             style={{ width: `${progress}%` }}
           />
         </div>
 
-        <div className="mt-3 flex justify-between gap-4 font-mono text-[9px] uppercase tracking-[0.1em] text-black/55 dark:text-white/50">
+        <div className="mt-3 flex justify-between gap-4 font-mono text-[9px] uppercase tracking-widest text-black/55 dark:text-white/50">
           <span>{progress < 100 ? "Loading" : "Welcome"}</span>
 
           <span className="tabular-nums text-[#536d00] dark:text-[#d7fa54]">

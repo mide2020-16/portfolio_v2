@@ -33,7 +33,7 @@ export function IPhone17Mockup({
           ? `${title} phone — click to ${isUpright ? "lay flat on table" : "stand upright"}`
           : undefined
       }
-      className={`relative mx-auto flex w-full max-w-[195px] flex-col items-center select-none ${
+      className={`relative mx-auto flex w-full max-w-48.75 flex-col items-center select-none ${
         onToggle ? "cursor-pointer focus:outline-none" : ""
       }`}
       style={{ perspective: "1300px" }}
@@ -61,26 +61,26 @@ export function IPhone17Mockup({
         {/* Power button (right) */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -right-[2.5px] top-[24%] h-[9.5%] w-[2.5px] rounded-r-sm bg-gradient-to-b from-[#e2e5ea] via-[#8e939c] to-[#4b5058] shadow-sm"
+          className="pointer-events-none absolute right-[-2.5px] top-[24%] h-[9.5%] w-[2.5px] rounded-r-sm bg-linear-to-b from-[#e2e5ea] via-[#8e939c] to-[#4b5058] shadow-sm"
         />
         {/* Action button (top-left) */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -left-[2.5px] top-[15%] h-[4.2%] w-[2.5px] rounded-l-sm bg-gradient-to-b from-[#e2e5ea] via-[#8e939c] to-[#4b5058]"
+          className="pointer-events-none absolute left-[-2.5px] top-[15%] h-[4.2%] w-[2.5px] rounded-l-sm bg-linear-to-b from-[#e2e5ea] via-[#8e939c] to-[#4b5058]"
         />
         {/* Volume Up (left) */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -left-[2.5px] top-[22%] h-[7.5%] w-[2.5px] rounded-l-sm bg-gradient-to-b from-[#e2e5ea] via-[#8e939c] to-[#4b5058]"
+          className="pointer-events-none absolute left-[-2.5px] top-[22%] h-[7.5%] w-[2.5px] rounded-l-sm bg-linear-to-b from-[#e2e5ea] via-[#8e939c] to-[#4b5058]"
         />
         {/* Volume Down (left) */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -left-[2.5px] top-[31.5%] h-[7.5%] w-[2.5px] rounded-l-sm bg-gradient-to-b from-[#e2e5ea] via-[#8e939c] to-[#4b5058]"
+          className="pointer-events-none absolute left-[-2.5px] top-[31.5%] h-[7.5%] w-[2.5px] rounded-l-sm bg-linear-to-b from-[#e2e5ea] via-[#8e939c] to-[#4b5058]"
         />
 
         {/* Titanium Outer Frame */}
-        <div className="relative aspect-[0.485] w-full overflow-hidden rounded-[2rem] border border-white/55 bg-[linear-gradient(135deg,#eef0f4_0%,#9ca3af_26%,#3f4652_66%,#a1a7b0_100%)] p-[3.5px] shadow-[0_14px_24px_-8px_rgba(15,23,42,0.45),inset_0_1px_1px_rgba(255,255,255,0.85)] sm:rounded-[2.55rem] sm:border-[1.5px] sm:p-[4.5px]">
+        <div className="relative aspect-[0.485] w-full overflow-hidden rounded-4xl border border-white/55 bg-[linear-gradient(135deg,#eef0f4_0%,#9ca3af_26%,#3f4652_66%,#a1a7b0_100%)] p-[3.5px] shadow-[0_14px_24px_-8px_rgba(15,23,42,0.45),inset_0_1px_1px_rgba(255,255,255,0.85)] sm:rounded-[2.55rem] sm:border-[1.5px] sm:p-[4.5px]">
           {/* Black Inner Glass Bezel & Screen */}
           <div className="relative h-full w-full overflow-hidden rounded-[1.72rem] bg-black ring-1 ring-black/90 sm:rounded-[2.18rem]">
             <ScreenContent
@@ -94,7 +94,7 @@ export function IPhone17Mockup({
               aria-hidden="true"
               className="pointer-events-none absolute left-1/2 top-[2%] z-20 flex h-[2.8%] w-[33%] -translate-x-1/2 items-center justify-end rounded-full bg-black pr-[5%] shadow-[0_1px_2px_rgba(0,0,0,0.85),inset_0_0_0_1px_rgba(255,255,255,0.08)]"
             >
-              <span className="size-[6px] rounded-full bg-[#0f172a] ring-1 ring-sky-400/30 sm:size-[8px]" />
+              <span className="size-1.5 rounded-full bg-[#0f172a] ring-1 ring-sky-400/30 sm:size-2" />
             </div>
 
             {/* Subtle glass edge highlight */}
@@ -107,7 +107,7 @@ export function IPhone17Mockup({
       </motion.div>
 
       {/* Tabletop Contact Shadow & Ambient Occlusion Seam */}
-      <div className="relative z-10 -mt-[3px] flex w-full flex-col items-center">
+      <div className="relative z-10 -mt-0.75 flex w-full flex-col items-center">
         {/* Tight dark contact line where the bottom bezel touches the tabletop */}
         <motion.div
           aria-hidden="true"
@@ -116,7 +116,7 @@ export function IPhone17Mockup({
             opacity: isUpright ? 0.72 : 0.55,
           }}
           transition={{ type: "spring", stiffness: 150, damping: 22 }}
-          className="h-[3px] rounded-full bg-slate-950/90 blur-[1.5px]"
+          className="h-0.75 rounded-full bg-slate-950/90 blur-[1.5px]"
         />
         {/* Soft diffused shadow cast onto the table surface */}
         <motion.div

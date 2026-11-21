@@ -38,13 +38,13 @@ export default function NotFound() {
   }, [router]);
 
   return (
-    <main className="relative isolate flex min-h-[100dvh] items-center justify-center overflow-hidden bg-background px-4 py-8 text-foreground sm:px-6 sm:py-12">
+    <main className="relative isolate flex min-h-dvh items-center justify-center overflow-hidden bg-background px-4 py-8 text-foreground sm:px-6 sm:py-12">
       {/* Background texture */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 opacity-[0.035]
-          [background-image:linear-gradient(var(--foreground)_1px,transparent_1px),linear-gradient(90deg,var(--foreground)_1px,transparent_1px)]
-          [background-size:40px_40px]"
+          bg-[linear-gradient(var(--foreground)_1px,transparent_1px),linear-gradient(90deg,var(--foreground)_1px,transparent_1px)]
+          bg-size-[40px_40px]"
       />
 
       <div
@@ -69,7 +69,7 @@ export default function NotFound() {
         {/* Main panel */}
         <div className="grid min-w-0 overflow-hidden border-2 border-border bg-background shadow-[5px_5px_0px_0px_var(--foreground)] sm:shadow-[8px_8px_0px_0px_var(--foreground)] lg:grid-cols-[0.95fr_1.05fr]">
           {/* Visual panel */}
-          <div className="relative flex min-w-0 flex-col items-center justify-center overflow-hidden border-b-2 border-border bg-card px-5 py-7 sm:px-8 sm:py-9 lg:min-h-[480px] lg:border-b-0 lg:border-r-2 lg:px-10 lg:py-12">
+          <div className="relative flex min-w-0 flex-col items-center justify-center overflow-hidden border-b-2 border-border bg-card px-5 py-7 sm:px-8 sm:py-9 lg:min-h-120 lg:border-b-0 lg:border-r-2 lg:px-10 lg:py-12">
             {/* Soft accent behind the illustration */}
             <div
               aria-hidden="true"
@@ -96,7 +96,7 @@ export default function NotFound() {
 
             {/* Error number */}
             <motion.div variants={fadeUp} className="relative z-10 mt-3">
-              <p className="select-none whitespace-nowrap text-[clamp(6rem,19vw,10.5rem)] font-black leading-[0.82] tracking-[-0.1em] text-foreground">
+              <p className="select-none whitespace-nowrap text-[clamp(6rem,19vw,10.5rem)] font-black leading-[0.82] -tracking-widest text-foreground">
                 404
               </p>
 
@@ -150,7 +150,7 @@ export default function NotFound() {
             >
               <Link
                 href="/"
-                className="group inline-flex min-h-12 w-full items-center justify-center gap-3 border-2 border-foreground bg-primary-accent px-5 py-3 text-xs font-black uppercase tracking-wider text-white shadow-[4px_4px_0px_0px_var(--foreground)] transition-[transform,box-shadow,background-color] duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_var(--foreground)] active:translate-x-1 active:translate-y-1 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-accent focus-visible:ring-offset-2 sm:w-auto"
+                className="group inline-flex min-h-12 w-full items-center justify-center gap-3 border-2 border-foreground bg-primary-accent px-5 py-3 text-xs font-black uppercase tracking-wider text-white shadow-[4px_4px_0px_0px_var(--foreground)] transition-[transform,box-shadow,background-color] duration-150 hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_var(--foreground)] active:translate-x-1 active:translate-y-1 active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-accent focus-visible:ring-offset-2 sm:w-auto"
               >
                 <Home size={17} aria-hidden="true" />
                 Go home

@@ -46,7 +46,7 @@ export function ProjectDeviceStage({
   return (
     <div
       ref={stageRef}
-      className="relative isolate flex min-h-[270px] items-end justify-center overflow-hidden px-3 pt-8 pb-7 sm:min-h-[360px] sm:px-6 sm:pt-10 sm:pb-9 lg:min-h-[405px]">
+      className="relative isolate flex min-h-67.5 items-end justify-center overflow-hidden px-3 pt-8 pb-7 sm:min-h-90 sm:px-6 sm:pt-10 sm:pb-9 lg:min-h-101.25">
 
       {platform === "desktop" && (
         <div className="relative z-10 w-full">
@@ -60,7 +60,7 @@ export function ProjectDeviceStage({
       )}
 
       {platform === "mobile" && (
-        <div className="relative z-10 flex w-[38%] min-w-[105px] max-w-[195px] items-end justify-center sm:w-[28%]">
+        <div className="relative z-10 flex w-[38%] min-w-26.25 max-w-48.75 items-end justify-center sm:w-[28%]">
           <IPhone17Mockup
             screenshot={mobileScreenshot}
             title={title}
@@ -80,7 +80,7 @@ export function ProjectDeviceStage({
               onToggle={() => setLaptopOpen((prev) => !prev)}
             />
           </div>
-          <div className="absolute bottom-0 right-[2%] z-20 w-[31%] rotate-[2deg] transition-transform duration-500 sm:right-[4%] sm:w-[25%] sm:hover:rotate-0">
+          <div className="absolute bottom-0 right-[2%] z-20 w-[31%] rotate-2 transition-transform duration-500 sm:right-[4%] sm:w-[25%] sm:hover:rotate-0">
             <IPhone17Mockup
               screenshot={mobileScreenshot}
               title={title}

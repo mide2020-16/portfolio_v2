@@ -73,7 +73,7 @@ export function ExperienceMilestonesTimeline({
                 onClick={() => toggleMilestone(milestoneId)}
                 aria-expanded={!isCollapsed}
                 aria-label={`${isCollapsed ? "Expand" : "Collapse"} ${milestone.role} milestone`}
-                className="absolute -left-[23px] top-1.5 z-10 flex size-3 items-center justify-center border-2 border-background bg-secondary-accent shadow-[0_0_0_1px_var(--border)] transition-transform duration-200 hover:scale-125 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-accent focus-visible:ring-offset-2 sm:-left-[31px]"
+                className="absolute -left-5.75 top-1.5 z-10 flex size-3 items-center justify-center border-2 border-background bg-secondary-accent shadow-[0_0_0_1px_var(--border)] transition-transform duration-200 hover:scale-125 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-accent focus-visible:ring-offset-2 sm:-left-7.75"
               />
 
               {/* Milestone heading */}
@@ -130,7 +130,7 @@ export function ExperienceMilestonesTimeline({
                           >
                             <span
                               aria-hidden="true"
-                              className="mt-[9px] size-1.5 shrink-0 rounded-full bg-secondary-accent"
+                              className="mt-2.25 size-1.5 shrink-0 rounded-full bg-secondary-accent"
                             />
 
                             <span>{highlight}</span>

@@ -87,7 +87,7 @@ export function ProjectNotebook({
                   >
                     <span
                       aria-hidden="true"
-                      className="mt-[9px] size-1.5 shrink-0 rounded-full bg-rose-600"
+                      className="mt-2.25 size-1.5 shrink-0 rounded-full bg-rose-600"
                     />
                     <span>{highlight}</span>
                   </li>

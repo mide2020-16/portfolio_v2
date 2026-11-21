@@ -24,21 +24,21 @@ export function HireMeHeader({
             {step === "choose" ? (
               <>
                 Let&apos;s work{" "}
-                <span className="bg-[var(--secondary-accent)] px-1">
+                <span className="bg-secondary-accent px-1">
                   together
                 </span>
               </>
             ) : step === "book" ? (
               <>
                 Schedule a{" "}
-                <span className="bg-[var(--secondary-accent)] px-1">
+                <span className="bg-secondary-accent px-1">
                   session
                 </span>
               </>
             ) : (
               <>
                 Meeting{" "}
-                <span className="bg-[var(--secondary-accent)] px-1">
+                <span className="bg-secondary-accent px-1">
                   confirmed
                 </span>
                 !
@@ -53,7 +53,7 @@ export function HireMeHeader({
         type="button"
         onClick={onClose}
         aria-label="Close dialog"
-        className="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-foreground/30 transition-all duration-200 hover:translate-x-[2px] hover:translate-y-[2px] hover:rotate-90 hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent"
+        className="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-foreground/30 transition-all duration-200 hover:translate-x-0.5 hover:translate-y-0.5 hover:rotate-90 hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent"
       >
         <X size={20} aria-hidden="true" />
       </button>

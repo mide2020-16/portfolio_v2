@@ -130,7 +130,7 @@ export function HireMeModal({
           transition={{
             duration: reduceMotion ? 0 : 0.22,
           }}
-          className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-[3px]"
+          className="fixed inset-0 z-100 bg-black/70 backdrop-blur-[3px]"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) {
               handleClose();

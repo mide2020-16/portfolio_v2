@@ -42,7 +42,7 @@ export function ExperienceHighlightsNote({
             >
               <span
                 aria-hidden="true"
-                className="mt-[11px] size-1.5 shrink-0 rounded-full bg-secondary-accent"
+                className="mt-2.75 size-1.5 shrink-0 rounded-full bg-secondary-accent"
               />
               <span>{highlight}</span>
             </li>

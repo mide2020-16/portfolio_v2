@@ -67,7 +67,7 @@ export function BookingSuccess({
       <button
         type="button"
         onClick={onClose}
-        className="mt-8 inline-flex min-h-12 items-center justify-center gap-3 border-2 border-border bg-foreground px-6 py-3 text-xs font-black uppercase tracking-widest text-background shadow-[4px_4px_0px_0px_var(--highlight)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-secondary-accent hover:text-foreground hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent"
+        className="mt-8 inline-flex min-h-12 items-center justify-center gap-3 border-2 border-border bg-foreground px-6 py-3 text-xs font-black uppercase tracking-widest text-background shadow-[4px_4px_0px_0px_var(--highlight)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-secondary-accent hover:text-foreground hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent"
       >
         Done
       </button>

@@ -210,7 +210,7 @@ export function ProjectPresentation({
         {/* Soft blur shadow along the bottom border of the sticky bar */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 -bottom-5 h-5 bg-gradient-to-b from-background/80 via-background/30 to-transparent blur-[3px] shadow-[0_8px_18px_-6px_rgba(15,23,42,0.22)]"
+          className="pointer-events-none absolute inset-x-0 -bottom-5 h-5 bg-linear-to-b from-background/80 via-background/30 to-transparent blur-[3px] shadow-[0_8px_18px_-6px_rgba(15,23,42,0.22)]"
         />
         <span
           aria-hidden="true"

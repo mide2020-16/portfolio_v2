@@ -156,7 +156,7 @@ export default async function ProjectDetailPage({
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex min-h-11 items-center gap-2 border-2 border-foreground bg-foreground px-4 py-3 text-xs font-black uppercase tracking-[0.1em] text-background transition-colors hover:bg-transparent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent focus-visible:ring-offset-2"
+                className="mt-6 inline-flex min-h-11 items-center gap-2 border-2 border-foreground bg-foreground px-4 py-3 text-xs font-black uppercase tracking-widest text-background transition-colors hover:bg-transparent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent focus-visible:ring-offset-2"
               >
                 Visit live project
                 <ExternalLink size={15} aria-hidden="true" />
@@ -227,7 +227,7 @@ export default async function ProjectDetailPage({
 
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.1em] text-foreground hover:text-secondary-accent"
+                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-foreground hover:text-secondary-accent"
               >
                 All projects
                 <ArrowUpRight size={15} aria-hidden="true" />

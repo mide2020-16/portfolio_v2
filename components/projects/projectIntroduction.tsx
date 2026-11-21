@@ -42,7 +42,7 @@ export function ProjectIntroduction({
 
         <Link
           href={`/projects/${project.id}`}
-          className="mt-7 inline-flex min-h-11 items-center gap-2 border-2 border-foreground bg-foreground px-4 py-3 text-xs font-black uppercase tracking-[.1em] text-background hover:bg-secondary-accent hover:text-foreground"
+          className="mt-7 inline-flex min-h-11 items-center gap-2 border-2 border-foreground bg-foreground px-4 py-3 text-xs font-black uppercase tracking-widest text-background hover:bg-secondary-accent hover:text-foreground"
         >
           Read project case study
           <ArrowUpRight size={15} />

@@ -102,7 +102,7 @@ export function EducationNotebook({
                         : highlightIndex * 0.065,
                       ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="flex items-start gap-3 py-[7px] text-[13px] font-medium leading-[1.8] text-slate-700 sm:gap-4 sm:text-sm"
+                    className="flex items-start gap-3 py-1.75 text-[13px] font-medium leading-[1.8] text-slate-700 sm:gap-4 sm:text-sm"
                   >
                     <span className="min-w-0 flex-1">
                       {highlight}

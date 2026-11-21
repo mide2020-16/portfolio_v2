@@ -196,7 +196,7 @@ export function MobileNav() {
             group
             flex
             h-10
-            min-w-[92px]
+            min-w-23
             shrink-0
             items-center
             justify-center
@@ -209,8 +209,8 @@ export function MobileNav() {
             shadow-[3px_3px_0px_0px_var(--foreground)]
             transition-all
             duration-150
-            active:translate-x-[2px]
-            active:translate-y-[2px]
+            active:translate-x-0.5
+            active:translate-y-0.5
             active:shadow-none
             focus-visible:outline-none
             focus-visible:ring-2
@@ -219,7 +219,7 @@ export function MobileNav() {
             focus-visible:ring-offset-background
           "
         >
-          <span className="text-[9px] font-black uppercase tracking-[0.1em]">
+          <span className="text-[9px] font-black uppercase tracking-widest">
             Hire Me
           </span>
 

@@ -48,7 +48,7 @@ export function ExperienceSection({
           {view === "home" && showWorkLink && (
             <Link
               href="/experience"
-              className="group inline-flex w-fit shrink-0 items-center gap-2 border-2 border-foreground bg-foreground px-4 py-3 text-xs font-black uppercase tracking-[0.13em] text-background shadow-[4px_4px_0px_0px_var(--secondary-accent)] transition-[transform,box-shadow] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_var(--secondary-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent focus-visible:ring-offset-2"
+              className="group inline-flex w-fit shrink-0 items-center gap-2 border-2 border-foreground bg-foreground px-4 py-3 text-xs font-black uppercase tracking-[0.13em] text-background shadow-[4px_4px_0px_0px_var(--secondary-accent)] transition-[transform,box-shadow] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_var(--secondary-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent focus-visible:ring-offset-2"
             >
               experiences & achievements
               <ArrowUpRight

@@ -129,7 +129,7 @@ export function IntentSelection({
                       >
                         <Check
                           size={20}
-                          className="text-[var(--foreground)]"
+                          className="text-foreground"
                           aria-hidden="true"
                         />
                       </motion.div>
@@ -159,7 +159,7 @@ export function IntentSelection({
                       >
                         <ChevronRight
                           size={18}
-                          className="text-[var(--foreground)]"
+                          className="text-foreground"
                           aria-hidden="true"
                         />
                       </motion.div>
@@ -186,7 +186,7 @@ export function IntentSelection({
             type="button"
             disabled={!intent}
             onClick={onContinue}
-            className="inline-flex min-h-12 items-center justify-center gap-3 border-2 border-border bg-foreground px-5 py-3 text-xs font-black uppercase tracking-widest text-background shadow-[4px_4px_0px_0px_var(--highlight)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-secondary-accent hover:text-foreground hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:bg-foreground disabled:hover:text-background disabled:hover:shadow-[4px_4px_0px_0px_var(--highlight)]"
+            className="inline-flex min-h-12 items-center justify-center gap-3 border-2 border-border bg-foreground px-5 py-3 text-xs font-black uppercase tracking-widest text-background shadow-[4px_4px_0px_0px_var(--highlight)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-secondary-accent hover:text-foreground hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-accent disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:bg-foreground disabled:hover:text-background disabled:hover:shadow-[4px_4px_0px_0px_var(--highlight)]"
           >
             Continue
             <ChevronRight size={17} aria-hidden="true" />
