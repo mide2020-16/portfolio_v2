@@ -130,11 +130,11 @@ export function TestimonialsSection() {
         {/* Horizontal zigzag carousel */}
         <div
           ref={viewportRef}
-          className="relative mt-10 overflow-hidden py-4 lg:mt-14 lg:pb-20"
+          className="relative mt-8 overflow-hidden py-4 lg:mt-14 lg:pb-20"
         >
           <motion.div
             ref={trackRef}
-            className="flex w-max items-start gap-8 lg:gap-12"
+            className="flex w-max items-start gap-6 px-1 lg:gap-12 lg:px-0"
             style={{ x }}
           >
             {trackTestimonials.map((testimonial, index) => {
@@ -145,7 +145,7 @@ export function TestimonialsSection() {
                 <div
                   key={`${testimonial.name}-${index}`}
                   className={[
-                    "w-[min(82vw,380px)] shrink-0",
+                    "w-[calc(100vw-3rem)] max-w-[380px] shrink-0",
                     "lg:w-[calc((min(100vw,1280px)-160px)/3)]",
                     "transition-transform duration-300",
                     isMiddle
@@ -164,7 +164,7 @@ export function TestimonialsSection() {
         </div>
 
         {/* Navigation */}
-        <div className="mt-10 flex flex-col gap-7 pt-6 sm:mt-12 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex items-center justify-between gap-4 pt-6 sm:mt-12">
           <button
             type="button"
             onClick={goToPrevious}
@@ -172,7 +172,7 @@ export function TestimonialsSection() {
             aria-label="Check previous testimonials"
             className="group text-left outline-none disabled:cursor-wait"
           >
-            <span className="block text-xs font-black uppercase tracking-[0.16em] text-muted-foreground transition-colors group-hover:text-foreground">
+            <span className="block text-[10px] font-black uppercase tracking-[0.12em] text-muted-foreground transition-colors group-hover:text-foreground sm:text-xs sm:tracking-[0.16em]">
               Check the previous
             </span>
           </button>
@@ -184,7 +184,7 @@ export function TestimonialsSection() {
             aria-label="Go to the next testimonials"
             className="group text-right outline-none disabled:cursor-wait"
           >
-            <span className="block text-xs font-black uppercase tracking-[0.16em] text-muted-foreground transition-colors group-hover:text-foreground">
+            <span className="block text-right text-[10px] font-black uppercase tracking-[0.12em] text-muted-foreground transition-colors group-hover:text-foreground sm:text-xs sm:tracking-[0.16em]">
               Go to the next
             </span>
           </button>

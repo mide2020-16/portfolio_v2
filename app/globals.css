@@ -82,6 +82,8 @@ html.light {
 html {
   scroll-behavior: smooth;
   background: var(--background);
+  /* Decorative shadows and rotated mockups must never create a horizontal page. */
+  overflow-x: clip;
 }
 
 body {
@@ -89,6 +91,15 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Keep content readable on very narrow wearables without affecting phone layouts. */
+@media (max-width: 359px) {
+  html {
+    font-size: 15px;
+  }
 }
 
 ::selection {

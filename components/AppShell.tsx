@@ -18,7 +18,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           }`}
       >
         <Navbar showSplash={showSplash} />
-        <main>{children}</main>
+        <main className="min-w-0 pb-24 md:pb-0">{children}</main>
         <Footer />
       </div>
     </>

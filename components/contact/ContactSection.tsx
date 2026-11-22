@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="overflow-x-clip py-16 sm:py-24">
       <div className="container mx-auto max-w-6xl px-4 sm:px-8">
         <SectionLabel title="Contact" />
 
@@ -24,7 +24,7 @@ export function ContactSection() {
               stiffness: 100,
               damping: 20,
             }}
-            className="border-2 border-border bg-card p-8 shadow-[8px_8px_0px_0px_var(--primary-accent)]"
+            className="border-2 border-border bg-card p-5 shadow-[6px_6px_0px_0px_var(--primary-accent)] sm:p-8 sm:shadow-[8px_8px_0px_0px_var(--primary-accent)]"
           >
             <ContactForm />
           </motion.div>

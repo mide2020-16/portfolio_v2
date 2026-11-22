@@ -70,7 +70,7 @@ export function MobileNav() {
   }, [isHome]);
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 px-3 pb-[calc(env(safe-area-inset-bottom)+10px)] md:hidden">
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 px-2 pb-[calc(env(safe-area-inset-bottom)+8px)] sm:px-3 sm:pb-[calc(env(safe-area-inset-bottom)+10px)] md:hidden">
       <nav
         aria-label="Mobile navigation"
         className="
@@ -80,11 +80,13 @@ export function MobileNav() {
           w-full
           max-w-md
           items-center
-          gap-1.5
+          gap-1
           border-2
           border-border
           bg-background/95
-          p-1.5
+          p-1
+          sm:gap-1.5
+          sm:p-1.5
           shadow-[6px_6px_0px_0px_var(--foreground)]
           backdrop-blur-xl
         "
@@ -196,7 +198,8 @@ export function MobileNav() {
             group
             flex
             h-10
-            min-w-23
+            min-w-0
+            w-10
             shrink-0
             items-center
             justify-center
@@ -204,7 +207,9 @@ export function MobileNav() {
             border-2
             border-foreground
             bg-primary-accent
-            px-4
+            px-0
+            sm:min-w-23
+            sm:px-4
             text-white
             shadow-[3px_3px_0px_0px_var(--foreground)]
             transition-all
@@ -219,7 +224,7 @@ export function MobileNav() {
             focus-visible:ring-offset-background
           "
         >
-          <span className="text-[9px] font-black uppercase tracking-widest">
+          <span className="sr-only text-[9px] font-black uppercase tracking-widest sm:not-sr-only">
             Hire Me
           </span>
 
