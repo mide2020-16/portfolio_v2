@@ -16,73 +16,49 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Ayomide brings a rare mix of care and momentum to a project. He asks the right questions early, then turns the answers into a polished experience.",
-    name: "Project collaborator",
-    role: "Product team",
-    initials: "PC",
+    name: "Odule Ayanfeoluwa",
+    role: "Backend Developer",
+    initials: "OA",
     accent: "lime",
   },
   {
     quote:
       "Working with Ayomide feels collaborative from start to finish. The implementation is thoughtful, responsive, and always grounded in what the product needs.",
-    name: "Engineering teammate",
-    role: "Software team",
-    initials: "ET",
+    name: "Grace",
+    role: "Product Manager",
+    initials: "G",
     accent: "coral",
   },
   {
     quote:
       "He has a strong eye for the details that make an interface feel effortless. Clear communication and dependable delivery made the work a genuine pleasure.",
-    name: "Creative partner",
-    role: "Digital product",
-    initials: "CP",
+    name: "Victoria",
+    role: "Founder, SMEs services",
+    initials: "V",
     accent: "ink",
   },
   {
     quote:
       "Ayomide brings a rare mix of care and momentum to a project. He asks the right questions early, then turns the answers into a polished experience.",
-    name: "Project collaborator",
-    role: "Product team",
-    initials: "PC",
+    name: "Mr. Ifeanyi Onovo",
+    role: "CEO, Maekandex Comunications",
+    initials: "IO",
     accent: "lime",
   },
   {
     quote:
       "Working with Ayomide feels collaborative from start to finish. The implementation is thoughtful, responsive, and always grounded in what the product needs.",
-    name: "Engineering teammate",
-    role: "Software team",
-    initials: "ET",
+    name: "Tolulope",
+    role: "Product Manager / HR",
+    initials: "T",
     accent: "coral",
   },
   {
     quote:
       "He has a strong eye for the details that make an interface feel effortless. Clear communication and dependable delivery made the work a genuine pleasure.",
-    name: "Creative partner",
-    role: "Digital product",
-    initials: "CP",
+    name: "Olajide",
+    role: "Frontend Dev.",
+    initials: "O",
     accent: "ink",
   },
-  {
-    quote:
-      "Ayomide brings a rare mix of care and momentum to a project. He asks the right questions early, then turns the answers into a polished experience.",
-    name: "Project collaborator",
-    role: "Product team",
-    initials: "PC",
-    accent: "lime",
-  },
-  {
-    quote:
-      "Working with Ayomide feels collaborative from start to finish. The implementation is thoughtful, responsive, and always grounded in what the product needs.",
-    name: "Engineering teammate",
-    role: "Software team",
-    initials: "ET",
-    accent: "coral",
-  },
-  {
-    quote:
-      "He has a strong eye for the details that make an interface feel effortless. Clear communication and dependable delivery made the work a genuine pleasure.",
-    name: "Creative partner",
-    role: "Digital product",
-    initials: "CP",
-    accent: "ink",
-  },
-];
+]

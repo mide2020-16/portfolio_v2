@@ -12,6 +12,7 @@ export const NAV_LINKS = [
   { slug: "projects", label: "Projects" },
   { slug: "skills", label: "Skills" },
   { slug: "contact", label: "Contact" },
+  { slug: "testimonials", label: "Testimonials"},
 ] as const;
 
 export const MOBILE_NAV_ITEMS = [
@@ -29,7 +30,7 @@ export const MOBILE_NAV_ITEMS = [
 export function getNavHref(slug: string, pathname: string): string {
   const isHome = pathname === "/";
 
-  if (isHome || slug === "skiils" || slug === "contact") {
+  if (isHome || slug === "skiils" || slug === "contact" || slug === "testimonials") {
     return `/#${slug}`;
   }
 

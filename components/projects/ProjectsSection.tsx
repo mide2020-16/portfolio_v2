@@ -13,7 +13,7 @@ export function ProjectsSection() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="relative overflow-hidden border-y-2 border-border bg-background py-16 sm:py-20 lg:py-24"
+      className="relative overflow-hidden bg-background py-16 sm:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         <div className="mb-9 flex flex-col gap-5 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">

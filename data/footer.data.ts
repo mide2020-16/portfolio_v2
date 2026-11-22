@@ -3,4 +3,5 @@ export const footerLinks = [
   { label: "Projects", href: "projects" },
   { label: "Contact", href: "/#contact" },
   {label: "Skills", href: "/#skills" },
+  { label: "Testimonials", href: "/#testimonials" },
 ];

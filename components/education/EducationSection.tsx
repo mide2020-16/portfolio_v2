@@ -14,7 +14,7 @@ export function EducationSection() {
     <section
       id="education"
       aria-label="Education"
-      className="relative overflow-hidden border-y-2 border-border bg-highlight/80 py-16 sm:py-20 lg:py-24"
+      className="relative overflow-hidden bg-highlight/80 py-16 sm:py-20 lg:py-24"
     >
       {/* Decorative background */}
       <div
