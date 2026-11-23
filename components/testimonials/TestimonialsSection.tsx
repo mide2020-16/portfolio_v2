@@ -145,7 +145,7 @@ export function TestimonialsSection() {
                 <div
                   key={`${testimonial.name}-${index}`}
                   className={[
-                    "w-[calc(100vw-3rem)] max-w-[380px] shrink-0",
+                    "w-[calc(100vw-3rem)] max-w-95 shrink-0",
                     "lg:w-[calc((min(100vw,1280px)-160px)/3)]",
                     "transition-transform duration-300",
                     isMiddle
